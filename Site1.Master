@@ -12,19 +12,33 @@
 <body>
     <form id="form1" runat="server">
         <div id="header">
-            <h1>Artwork Sales and Display Gallery</h1>
+            <table id="headerTb">
+                <tr>
+                    <td>
+                        <h2>Artwork Sales and Display Gallery</h2>
+                    </td>
+                    <td id="headerBtn">
+                        <asp:Button ID="wishlishBtn" runat="server" Text="❤" />
+                        <asp:Button ID="cartBtn" runat="server" Text="My Cart" />
+                    </td>
+                </tr>
+            </table>
         </div>
+
+        <br />
+
         <div>
             <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
-            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" PathSeparator="&gt;"></asp:Menu>
+            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" PathSeparator="&gt;" ForeColor="Black" IncludeStyleBlock="False" ItemWrap="True" RenderingMode="List"></asp:Menu>
             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
         </div>
         <div id="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            
         </div>
         <div id="footer">
-            <h1>Footer</h1>
+            <h3>Footer</h3>
         </div>
     </form>
 </body>

@@ -1,3 +1,11 @@
 ﻿body, table, input, select {
     font: 18pt Calibri;
 }
+
+#headerTb{
+    width:100%;
+}
+
+#headerBtn{
+    text-align:right;
+}
