@@ -57,7 +57,7 @@ namespace WebApplication
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox art_quantity_warning_text;
+        protected global::System.Web.UI.WebControls.Label art_quantity_warning_text;
 
         /// <summary>
         /// DropDownList1 control.
@@ -67,5 +67,14 @@ namespace WebApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+
+        /// <summary>
+        /// button_submit_art control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_submit_art;
     }
 }
