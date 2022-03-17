@@ -71,6 +71,8 @@
     <Content Include="App_Data\db_log.ldf">
       <DependentUpon>db.mdf</DependentUpon>
     </Content>
+    <Content Include="artDetail.aspx" />
+    <Content Include="homepage.aspx" />
     <Content Include="login.aspx" />
     <Content Include="masterPage.css" />
     <Content Include="ref.txt" />
@@ -80,6 +82,20 @@
     <Content Include="artist\WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="artDetail.aspx.cs">
+      <DependentUpon>artDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="artDetail.aspx.designer.cs">
+      <DependentUpon>artDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homepage.aspx.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homepage.aspx.designer.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
