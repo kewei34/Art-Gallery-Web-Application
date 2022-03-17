@@ -41,22 +41,21 @@
         </tr>
         <tr>
             <td><asp:TextBox ID="art_quantity" runat="server" MaxLength="3" OnTextChanged="art_quantity_TextChanged"></asp:TextBox><br />
-                <asp:Label ID="art_quantity_warning_text" runat="server" Text=""></asp:Label></td>                
-            
-                
-                
+                 <asp:Label ID="art_quantity_warning_text" runat="server" Text=""></asp:Label>
+
+            </td>  
         </tr>
-        <tr>
+        <%--<tr>
             <td class="auto-style1">Art Categories</td>
         </tr>
         <tr>
             <td>
                 <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList></td>
-        </tr>
+        </tr>--%>
         <tr><td></td></tr>
         <tr>
             <td>
-                <asp:Button ID="button_submit_art" runat="server" Text="Submit" /></td>
+                <asp:Button ID="button_submit_art" runat="server" Text="Submit" OnClick="button_submit_art_Click" /></td>
         </tr>
     </table>
         

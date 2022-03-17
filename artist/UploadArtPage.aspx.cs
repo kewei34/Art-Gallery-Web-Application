@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace WebApplication
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) { 
@@ -29,6 +32,38 @@ namespace WebApplication
             
 
             
+        }
+
+        protected void button_submit_art_Click(object sender, EventArgs e)
+        {
+
+            string fileName = art_image_upload.FileName;
+            string name = art_name.Text;
+            decimal price = Convert.ToDecimal(art_price.Text);
+            int qty = Convert.ToInt32(art_quantity.Text);
+
+            //save img to folder
+            art_image_upload.PostedFile.SaveAs(Server.MapPath("~/image/" + fileName));
+            //save path
+            string path = "~/image/" + fileName.ToString();
+
+
+            string sql = "INSERT INTO art(imgPath,name,price,qty) VALUES (@Imgpath,@Name,@Price,@Qty)";
+
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand(sql, con);
+
+            cmd.Parameters.AddWithValue("@Imgpath", path);
+            cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@Price", price);
+            cmd.Parameters.AddWithValue("@Qty", qty);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+
+
         }
     }
 }
