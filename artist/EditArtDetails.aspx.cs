@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication.Customer
+namespace WebApplication.artist
 {
-    public partial class MakeOrder : System.Web.UI.Page
+    public partial class EditArtDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
