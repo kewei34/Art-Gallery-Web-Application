@@ -18,8 +18,14 @@
                         <h2>Artwork Sales and Display Gallery</h2>
                     </td>
                     <td id="headerBtn">
+                        
                         <asp:Button ID="wishlishBtn" runat="server" Text="❤" />
                         <asp:Button ID="cartBtn" runat="server" Text="My Cart" />
+                        
+                        &nbsp;&nbsp;
+                      <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>
+                        &nbsp;&nbsp;
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
                     </td>
                 </tr>
             </table>

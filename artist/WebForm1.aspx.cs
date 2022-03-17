@@ -14,9 +14,5 @@ namespace WebApplication
 
         }
 
-        protected System.Void Page_Load(System.Object sender, System.EventArgs e)
-        {
-
-        }
     }
 }
