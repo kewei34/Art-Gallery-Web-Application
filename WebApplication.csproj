@@ -71,8 +71,9 @@
     <Content Include="App_Data\db_log.ldf">
       <DependentUpon>db.mdf</DependentUpon>
     </Content>
-    <Content Include="artist\EditArtDetailsPage.aspx" />
-    <Content Include="Customer\Cheokout.aspx" />
+    <Content Include="artist\EditArtDetails.aspx" />
+    <Content Include="artist\EditArtPage.aspx" />
+    <Content Include="Customer\Checkout.aspx" />
     <Content Include="Customer\Payment.aspx" />
     <Content Include="Customer\ViewArtDetails.aspx" />
     <Content Include="Customer\ViewCart.aspx" />
@@ -83,22 +84,28 @@
     <Content Include="register.aspx" />
     <Content Include="Web.config" />
     <Content Include="artist\UploadArtPage.aspx" />
-    <Content Include="artist\EditArtPage.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="artist\EditArtDetailsPage.aspx.cs">
-      <DependentUpon>EditArtDetailsPage.aspx</DependentUpon>
+    <Compile Include="artist\EditArtDetails.aspx.cs">
+      <DependentUpon>EditArtDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="artist\EditArtDetailsPage.aspx.designer.cs">
-      <DependentUpon>EditArtDetailsPage.aspx</DependentUpon>
+    <Compile Include="artist\EditArtDetails.aspx.designer.cs">
+      <DependentUpon>EditArtDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Cheokout.aspx.cs">
-      <DependentUpon>Cheokout.aspx</DependentUpon>
+    <Compile Include="artist\EditArtPage.aspx.cs">
+      <DependentUpon>EditArtPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\Cheokout.aspx.designer.cs">
-      <DependentUpon>Cheokout.aspx</DependentUpon>
+    <Compile Include="artist\EditArtPage.aspx.designer.cs">
+      <DependentUpon>EditArtPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
@@ -156,13 +163,6 @@
     </Compile>
     <Compile Include="artist\UploadArtPage.aspx.designer.cs">
       <DependentUpon>UploadArtPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="artist\EditArtPage.aspx.cs">
-      <DependentUpon>EditArtPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="artist\EditArtPage.aspx.designer.cs">
-      <DependentUpon>EditArtPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
