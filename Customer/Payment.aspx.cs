@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication.Customer
 {
-    public partial class MakePayment : System.Web.UI.Page
+    public partial class Payment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
