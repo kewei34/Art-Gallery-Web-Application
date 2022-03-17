@@ -40,8 +40,11 @@
             <td>Art Quantity</td>
         </tr>
         <tr>
-            <td><asp:TextBox ID="art_quantity" runat="server" MaxLength="3" OnTextChanged="art_quantity_TextChanged"></asp:TextBox></td>                
-            <td id="art_quantity_warning" ><asp:TextBox ID="art_quantity_warning_text" runat="server"></asp:TextBox></td>
+            <td><asp:TextBox ID="art_quantity" runat="server" MaxLength="3" OnTextChanged="art_quantity_TextChanged"></asp:TextBox><br />
+                <asp:Label ID="art_quantity_warning_text" runat="server" Text=""></asp:Label></td>                
+            
+                
+                
         </tr>
         <tr>
             <td class="auto-style1">Art Categories</td>
@@ -49,6 +52,11 @@
         <tr>
             <td>
                 <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList></td>
+        </tr>
+        <tr><td></td></tr>
+        <tr>
+            <td>
+                <asp:Button ID="button_submit_art" runat="server" Text="Submit" /></td>
         </tr>
     </table>
         
