@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication
+namespace WebApplication.artist
 {
 
 
-    public partial class WebForm1
+    public partial class UploadArtPage
     {
 
         /// <summary>
