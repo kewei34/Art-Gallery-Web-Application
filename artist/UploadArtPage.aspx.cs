@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace WebApplication
+namespace WebApplication.artist
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class UploadArtPage : System.Web.UI.Page
     {
         string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
@@ -43,9 +43,9 @@ namespace WebApplication
             int qty = Convert.ToInt32(art_quantity.Text);
 
             //save img to folder
-            art_image_upload.PostedFile.SaveAs(Server.MapPath("~/image/" + fileName));
+            art_image_upload.PostedFile.SaveAs(Server.MapPath("/image/" + fileName));
             //save path
-            string path = "~/image/" + fileName.ToString();
+            string path = "/image/" + fileName.ToString();
 
 
             string sql = "INSERT INTO art(imgPath,name,price,qty) VALUES (@Imgpath,@Name,@Price,@Qty)";
