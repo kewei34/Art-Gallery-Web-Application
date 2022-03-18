@@ -15,13 +15,13 @@ namespace WebApplication.Customer
     {
 
         /// <summary>
-        /// Image1 control.
+        /// dp_artImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image dp_artImg;
 
         /// <summary>
         /// dp_artName control.
@@ -42,6 +42,15 @@ namespace WebApplication.Customer
         protected global::System.Web.UI.WebControls.Label dp_artPrice;
 
         /// <summary>
+        /// dp_qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dp_qty;
+
+        /// <summary>
         /// addCart control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,14 @@ namespace WebApplication.Customer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button wishlist;
+
+        /// <summary>
+        /// dp_artDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dp_artDesc;
     }
 }

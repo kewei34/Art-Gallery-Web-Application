@@ -60,6 +60,15 @@ namespace WebApplication.artist
         protected global::System.Web.UI.WebControls.Label art_quantity_warning_text;
 
         /// <summary>
+        /// art_desc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox art_desc;
+
+        /// <summary>
         /// button_submit_art control.
         /// </summary>
         /// <remarks>
