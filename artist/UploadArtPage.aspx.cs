@@ -41,6 +41,7 @@ namespace WebApplication.artist
             string name = art_name.Text;
             decimal price = Convert.ToDecimal(art_price.Text);
             int qty = Convert.ToInt32(art_quantity.Text);
+            string desc = art_desc.Text;
 
             //save img to folder
             art_image_upload.PostedFile.SaveAs(Server.MapPath("/image/" + fileName));
@@ -48,7 +49,7 @@ namespace WebApplication.artist
             string path = "/image/" + fileName.ToString();
 
 
-            string sql = "INSERT INTO art(imgPath,name,price,qty) VALUES (@Imgpath,@Name,@Price,@Qty)";
+            string sql = "INSERT INTO art(imgPath,name,price,qty,description) VALUES (@Imgpath,@Name,@Price,@Qty,@Desc)";
 
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -57,6 +58,7 @@ namespace WebApplication.artist
             cmd.Parameters.AddWithValue("@Name", name);
             cmd.Parameters.AddWithValue("@Price", price);
             cmd.Parameters.AddWithValue("@Qty", qty);
+            cmd.Parameters.AddWithValue("@Desc", desc);
 
             con.Open();
             cmd.ExecuteNonQuery();

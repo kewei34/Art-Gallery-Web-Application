@@ -1,37 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ViewCart.aspx.cs" Inherits="WebApplication.Customer.ViewCart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+</asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:ImageField>
-            </asp:ImageField>
-            <asp:BoundField />
-            <asp:BoundField />
-            <asp:BoundField />
-            <asp:CheckBoxField />
-        </Columns>
-        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-        <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
-   <%-- <table border="1">
-        <tr>
-            <td>Product Image</td>
-            <td>Product Name</td>
-            <td>Product Price</td>
-            <td>Product Quantity</td>
-        </tr>
-        <tr>
-            <td></td>
-        </tr>
+    <style>
+        #cart td{
+            border: black 2px solid;
+            padding : 10px 20px;
+        }
+        #cart{
+            border-collapse:collapse;
+        }
+    </style>
 
-    </table>--%>
-</asp:Content>
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+        <ItemTemplate>
+            <table id="cart">
+                <tr>
+                    <td>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imgPath") %>' style="max-width: 300px; max-height: 300px" />
+                    </td>
+                    <td>
+                        <b><%# Eval("name") %></b>
+                    </td>
+                    <td>
+                        <b>
+                            <asp:Label ID="lblPricehd" runat="server" Text='<%# Eval("price") %>'>
+                            </asp:Label>
+                        </b>
+                    </td>
+                    <td>
+                        <%# Eval("qty") %>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblTotal" runat="server" Text='<%#(calculateTotal((Eval("price")).ToString(), (Eval("qty")).ToString())) %>'></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </ItemTemplate>
+    </asp:DataList>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT art.name, art.price, art.imgPath, cart.qty FROM art INNER JOIN cart ON art.Id = cart.itemId"></asp:SqlDataSource>
+    </asp:Content>

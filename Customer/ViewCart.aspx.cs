@@ -12,6 +12,18 @@ namespace WebApplication.Customer
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //string s = ((Label)DataList1.FindControl("lblPricehd")).Text;
+            //decimal price = decimal.Parse(s);
+            //((Label)DataList1.FindControl("lblTotal")).Text = (price * 2).ToString();
+
         }
+
+        public string calculateTotal(string price,string qty)
+        {
+            decimal p = decimal.Parse(price);
+            decimal q = decimal.Parse(qty);
+            return "RM" + (p * q).ToString();
+        }
+
     }
 }

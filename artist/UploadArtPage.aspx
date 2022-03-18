@@ -21,20 +21,20 @@
             <td class="auto-style1">Art Image</td>            
         </tr>
         <tr>
-            <td style="margin-left: 80px" class="auto-style1"><asp:FileUpload ID="art_image_upload" runat="server" /></td>            
+            <td style="margin-left: 80px" class="auto-style1"><asp:FileUpload ID="art_image_upload" runat="server" accept=".png,.jpg,.jpeg" /></td>            
         </tr>
            
         <tr>
             <td class="auto-style1">Art Name</td>
         </tr>
         <tr>
-            <td class="auto-style1"><asp:TextBox ID="art_name" runat="server"></asp:TextBox></td>
+            <td class="auto-style1"><asp:TextBox ID="art_name" runat="server" MaxLength="99"></asp:TextBox></td>
         </tr>
         <tr>
             <td class="auto-style1">Art Price</td>
         </tr>
         <tr>
-            <td class="auto-style2"><asp:TextBox ID="art_price" runat="server"></asp:TextBox></td>
+            <td class="auto-style2"><asp:TextBox ID="art_price" runat="server" MaxLength="20"></asp:TextBox></td>
         </tr>
         <tr>
             <td>Art Quantity</td>
@@ -44,6 +44,14 @@
                  <asp:Label ID="art_quantity_warning_text" runat="server" Text=""></asp:Label>
 
             </td>  
+        </tr>
+        <tr>
+            <td>Art Description</td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox ID="art_desc" runat="server" Height="300px" Width="600px"></asp:TextBox>
+            </td>
         </tr>
         <%--<tr>
             <td class="auto-style1">Art Categories</td>
