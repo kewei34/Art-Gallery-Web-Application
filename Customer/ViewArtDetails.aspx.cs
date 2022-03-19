@@ -178,8 +178,7 @@ namespace WebApplication.Customer
 
                 cmd.ExecuteNonQuery();
                 
-                string link = "~/Customer/ViewArtDetails.aspx?Id=" + id;
-                Response.Redirect(link);
+                Response.Redirect("~/Customer/wishlist.aspx");
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to wishlist successfully !')", true);
 
