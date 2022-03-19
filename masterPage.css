@@ -1,15 +1,23 @@
 ﻿body, table, input, select {
     font: 18pt Calibri;
 }
+html
+{
+    background-color:antiquewhite;
+}
 
 
+table{
+    background-color:white;
+}
 td{
    padding:10px;
 }
 
-#headerTb{
-    width:100%;
-    height : 100px;
+#headerTb {
+    width: 100%;
+    height: 100px;
+    background-color: antiquewhite;
 }
 
 #headerBtn{
