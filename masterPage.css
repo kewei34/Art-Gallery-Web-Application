@@ -2,6 +2,11 @@
     font: 18pt Calibri;
 }
 
+
+td{
+   padding:10px;
+}
+
 #headerTb{
     width:100%;
     height : 100px;
