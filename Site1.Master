@@ -21,7 +21,7 @@
                         
                         <asp:Button ID="wishlishBtn" runat="server" Text="❤" OnClick="wishlishBtn_Click" />
                         <asp:Button ID="cartBtn" runat="server" Text="My Cart" OnClick="cartBtn_Click" />
-                        
+                        <asp:Button ID="artBtn" runat="server" Text="My Art" OnClick="artBtn_Click" />
                         &nbsp;&nbsp;
                       <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>
                         &nbsp;&nbsp;
@@ -33,9 +33,9 @@
 
         <br />
 
-        <div>
+        <div style="margin:10px 0px 50px 20px">
             <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
-            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" PathSeparator="&gt;" ForeColor="Black" IncludeStyleBlock="False" ItemWrap="True" RenderingMode="List"></asp:Menu>
+            
             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
         </div>
         <div id="content">

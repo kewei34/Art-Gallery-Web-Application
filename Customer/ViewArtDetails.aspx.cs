@@ -71,9 +71,10 @@ namespace WebApplication.Customer
 
             SqlConnection con = new SqlConnection(cs);
 
-            string checkSql = "SELECT artist FROM art WHERE artist=@Id";
+            string checkSql = "SELECT artist FROM art WHERE artist=@Id AND Id = @Art";
             SqlCommand checkCmd = new SqlCommand(checkSql, con);
             checkCmd.Parameters.AddWithValue("@Id", Membership.GetUser().ProviderUserKey);
+            checkCmd.Parameters.AddWithValue("@Art", id);
 
             con.Open();
 
@@ -97,8 +98,8 @@ namespace WebApplication.Customer
                 int qty = int.Parse(dp_qty.Text);
 
                 string sql = "INSERT INTO cart(itemId,qty,userId,userName) VALUES (@Id,@Qty,@UserId,@UserName)";
-                string check = "SELECT qty FROM cart WHERE itemId = @ItemId";
-                string sql2 = "UPDATE cart SET qty = @Qty WHERE itemId = @Id";
+                string check = "SELECT qty FROM cart WHERE itemId = @ItemId AND userId = @User";
+                string sql2 = "UPDATE cart SET qty = @Qty WHERE itemId = @Id AND userId = @User";
 
 
 
@@ -112,8 +113,10 @@ namespace WebApplication.Customer
                 cmd.Parameters.AddWithValue("@UserName", userName);
 
                 cmd2.Parameters.AddWithValue("@ItemId", id);
+                cmd2.Parameters.AddWithValue("@User", Membership.GetUser().ProviderUserKey);
 
                 cmd3.Parameters.AddWithValue("@Id", id);
+                cmd3.Parameters.AddWithValue("@User", Membership.GetUser().ProviderUserKey);
 
                 con.Open();
 

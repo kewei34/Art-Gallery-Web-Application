@@ -16,17 +16,16 @@ namespace WebApplication.Customer
         string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
- 
-            }
            
         }
+
         protected void Page_PreRender(object o, System.EventArgs e)
-        { SqlDataSource1.SelectCommand = "SELECT art.Id, art.imgPath, art.name, art.price,wishlist.userId, wishlist.Id AS Expr1 FROM art INNER JOIN wishlist ON art.Id = wishlist.itemId WHERE wishlist.userName = '" + getUserName() + "';";
+        { 
+            SqlDataSource1.SelectCommand = "SELECT art.Id, art.imgPath, art.name, art.price,wishlist.userId, wishlist.Id AS Expr1 FROM art INNER JOIN wishlist ON art.Id = wishlist.itemId WHERE wishlist.userName = '" + getUserName() + "';";
             SqlDataSource1.Select(DataSourceSelectArguments.Empty);
             SqlDataSource1.DataBind();
-            DataList1.DataBind();}
+            DataList1.DataBind();
+        }
 
 
 

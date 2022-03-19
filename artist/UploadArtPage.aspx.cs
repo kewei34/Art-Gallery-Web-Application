@@ -64,6 +64,9 @@ namespace WebApplication.artist
             cmd.ExecuteNonQuery();
             con.Close();
 
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your art has been published !')", true);
+
+            Response.Redirect("~/artist/EditArtPage.aspx");
 
 
         }

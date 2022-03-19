@@ -57,10 +57,16 @@ namespace WebApplication.artist
                 string id = lblId.Text;
                 string name = art_name.Text;
                 string new_imagepath = "";
+                string path = "";
                 if(art_image_upload.FileName!= "")
                 {
                     new_imagepath = art_image_upload.FileName;
-                }else
+                    //save img to folder
+                    art_image_upload.PostedFile.SaveAs(Server.MapPath("/image/" + new_imagepath));
+                    //save path
+                   path = "../image/" + new_imagepath.ToString();
+                }
+                else
                 {
                     new_imagepath = art_image.ImageUrl;
                 }
@@ -72,7 +78,7 @@ namespace WebApplication.artist
 
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.Parameters.AddWithValue("@New_imagepath",new_imagepath);
+                cmd.Parameters.AddWithValue("@New_imagepath",path);
                 cmd.Parameters.AddWithValue("@Name",name);
                 cmd.Parameters.AddWithValue("@Price",price);
                 cmd.Parameters.AddWithValue("@Qty",qty);

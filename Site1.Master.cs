@@ -23,5 +23,10 @@ namespace WebApplication
         {
             Response.Redirect("~/Customer/wishlist.aspx");
         }
+
+        protected void artBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/artist/EditArtPage.aspx");
+        }
     }
 }

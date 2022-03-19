@@ -8,11 +8,11 @@
         
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" style="margin:0px auto;">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblId" runat="server" Text="" style="visibility:hidden;"></asp:Label>
     <table border="1" style="border-collapse:separate; text-align:center;margin:0px auto;">
         <tr>
-            <td><b><asp:Label runat="server" Text="Art Preview: "></asp:Label></b></td>
+            <td><b><asp:Label runat="server" Text="Current Art Preview :"></asp:Label></b></td>
         </tr>
         <tr class="noborder">
             <td>
