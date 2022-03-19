@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         *{
-            margin:0px auto;
+            margin:0px auto; 
         }
     </style>
 </asp:Content>
