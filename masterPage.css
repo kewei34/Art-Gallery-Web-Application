@@ -5,14 +5,18 @@
 html {
     background-color: antiquewhite;
 }
-
-
-table {
-    background-color: white;
+html
+{
+    background-color:antiquewhite;
 }
 
-td {
-    padding: 10px;
+
+
+table{
+    background-color:white;
+}
+td{
+   padding:10px;
 }
 
 #headerTb {
