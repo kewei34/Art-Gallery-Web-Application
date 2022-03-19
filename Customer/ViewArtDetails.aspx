@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="wishlist" runat="server" Text="Add To Wishlist" />
+                <asp:Button ID="wishlist" runat="server" Text="Add To Wishlist" OnClick="wishlist_Click" />
             </td>
         </tr>
         <tr>

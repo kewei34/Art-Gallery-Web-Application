@@ -84,6 +84,7 @@
     <Content Include="masterPage.css" />
     <Content Include="ref.txt" />
     <Content Include="register.aspx" />
+    <Content Include="TextFile1.txt" />
     <Content Include="Web.config" />
     <Content Include="artist\UploadArtPage.aspx" />
   </ItemGroup>
