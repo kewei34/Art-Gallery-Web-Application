@@ -43,15 +43,30 @@ namespace WebApplication.Customer
                 Response.Redirect("~/homepage.aspx");
             }
 
-            con.Close();
+            dr.Close();
+
+            
+                string checkSql = "SELECT itemId FROM wishlist WHERE itemId=@Id AND userId = @User";
+                SqlCommand checkCmd = new SqlCommand(checkSql, con);
+                checkCmd.Parameters.AddWithValue("@Id", id);
+            checkCmd.Parameters.AddWithValue("@User", Membership.GetUser().ProviderUserKey);
+
+
+            dr = checkCmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    wishlist.Enabled = false;
+                }
+       
+
+                con.Close();
         }
 
         protected void addCart_Click(object sender, EventArgs e)
         {
             //item id
             string id = Request.QueryString["Id"] ?? "";
-            //user id
-            string userId = Membership.GetUser().ProviderUserKey.ToString();
             string userName = Membership.GetUser().UserName;
 
             SqlConnection con = new SqlConnection(cs);
@@ -93,7 +108,7 @@ namespace WebApplication.Customer
 
                 cmd.Parameters.AddWithValue("@Id", id);
                 cmd.Parameters.AddWithValue("@Qty", qty);
-                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@UserId", Membership.GetUser().ProviderUserKey);
                 cmd.Parameters.AddWithValue("@UserName", userName);
 
                 cmd2.Parameters.AddWithValue("@ItemId", id);
@@ -119,12 +134,57 @@ namespace WebApplication.Customer
                     cmd.ExecuteNonQuery();
                 }
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to cart successfully !')", true);
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 
 
                 con.Close();
             }
 
+
+        }
+
+        protected void wishlist_Click(object sender, EventArgs e)
+        {
+            //item id
+            string id = Request.QueryString["Id"] ?? "";
+
+            SqlConnection con = new SqlConnection(cs);
+
+
+            string checkSql = "SELECT itemId FROM wishlist WHERE itemId=@Id AND userId = @User";
+            SqlCommand checkCmd = new SqlCommand(checkSql, con);
+            checkCmd.Parameters.AddWithValue("@Id", id);
+            checkCmd.Parameters.AddWithValue("@User", Membership.GetUser().ProviderUserKey);
+
+            con.Open();
+
+            SqlDataReader dr = checkCmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+               
+            }
+            else
+            {
+                dr.Close();
+                string sql = "INSERT INTO wishlist(itemId,userId,userName) VALUES (@Id,@UserId,@UserName)";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@UserId", Membership.GetUser().ProviderUserKey.ToString());
+                cmd.Parameters.AddWithValue("@UserName", Membership.GetUser().UserName);
+
+
+                cmd.ExecuteNonQuery();
+                
+                string link = "~/Customer/ViewArtDetails.aspx?Id=" + id;
+                Response.Redirect(link);
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to wishlist successfully !')", true);
+
+               
+            }
+
+            dr.Close();
+            con.Close();
 
         }
     }
