@@ -20,8 +20,12 @@
                     <td id="headerBtn">
                         
                         <asp:Button ID="wishlishBtn" runat="server" Text="❤" OnClick="wishlishBtn_Click" />
+                        &nbsp;
                         <asp:Button ID="cartBtn" runat="server" Text="My Cart" OnClick="cartBtn_Click" />
+                        &nbsp;
                         <asp:Button ID="artBtn" runat="server" Text="My Art" OnClick="artBtn_Click" />
+                        &nbsp;
+                        <asp:Button ID="accBtn" runat="server" Text="Profile" OnClick="accBtn_Click" />
                         &nbsp;&nbsp;
                       <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>
                         &nbsp;&nbsp;
