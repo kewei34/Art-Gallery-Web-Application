@@ -28,5 +28,10 @@ namespace WebApplication
         {
             Response.Redirect("~/artist/EditArtPage.aspx");
         }
+
+        protected void accBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ManageAccount.aspx");
+        }
     }
 }
