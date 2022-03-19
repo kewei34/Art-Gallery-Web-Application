@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+    <table border="1" style="border-collapse:separate; margin:0px auto;">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text=" Name :"></asp:Label>
