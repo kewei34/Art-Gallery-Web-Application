@@ -12,26 +12,35 @@
         }
     </style>
 
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" style="margin:0px auto;">
         <HeaderTemplate>
 
         </HeaderTemplate>
         <ItemTemplate>
             <table id="cart">
+                <tr style="font-weight:bold;">
+                    <td style="width:300px;max-width:300px;overflow-wrap: break-word; text-align:center;">Artwork Preview</td>
+                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Art Name</td>
+                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Art Price</td>
+                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Art Quantity</td>
+                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Total Ammount</td>
+                    
+                </tr>
                 <tr>
                     <td>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imgPath") %>' style="max-width: 300px; max-height: 300px" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imgPath") %>' style="width:300px;height:250px;max-width: 300px;  max-height: 300px;box-shadow:5px 5px 5px #ccc;" />
                     </td>
                     <td>
                         <b><%# Eval("name") %> </b>
                     </td>
                     <td>
                         <b>
+                            <asp:Label runat="server" Text="RM "></asp:Label>
                             <asp:Label ID="lblPricehd" runat="server" Text='<%# Eval("price") %>'>
                             </asp:Label>
                         </b>
                     </td>
-                    <td>
+                    <td style="text-align:center;">
                         <%# Eval("qty") %>
                     </td>
                     <td>
@@ -43,14 +52,16 @@
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ></asp:SqlDataSource>
 
-  <div style="text-align:right;padding:20px">
+  <div style="text-align:right;padding:100px;">
       Total : <asp:Label ID="lblCartTotal" runat="server"></asp:Label>
       <br />
 
-  </div>
-    <div style="padding:30px;text-align:right;">
+      <div style="padding:10px;text-align:right;">
         <asp:Button ID="checkout" runat="server" Text="Checkout" OnClick="checkout_Click" />
     </div>
+
+  </div>
+    
      
   
 
