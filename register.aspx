@@ -12,6 +12,9 @@
             <h1>Welcome to The Secret Garden !</h1>
         </div>
 
+        <div style="padding:30px;">
+            <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" style="width:100px"  />
+        </div>
         <div>
             <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/login.aspx" InvalidQuestionErrorMessage="" >
                 <WizardSteps>

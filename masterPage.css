@@ -1,4 +1,8 @@
-﻿body, table, input, select {
+﻿body{
+    background-color:blanchedalmond;
+}
+
+body, table, input, select {
     font: 18pt Calibri;
 }
 

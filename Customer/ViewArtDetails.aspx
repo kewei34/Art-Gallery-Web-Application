@@ -36,7 +36,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <br /><br /><br />
                 <asp:Label ID="dp_artDesc" runat="server" ></asp:Label>
             </td>

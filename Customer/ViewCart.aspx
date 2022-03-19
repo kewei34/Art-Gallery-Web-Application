@@ -12,7 +12,8 @@
         }
     </style>
 
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" style="margin:0px auto;">
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand" style="margin:0px auto;>
+
         <HeaderTemplate>
 
         </HeaderTemplate>
@@ -28,6 +29,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:Label ID="lblId" runat="server" Text='<%# Eval("Id") %>' style="display: none;"></asp:Label>
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imgPath") %>' style="width:300px;height:250px;max-width: 300px;  max-height: 300px;box-shadow:5px 5px 5px #ccc;" />
                     </td>
                     <td>
@@ -46,13 +48,21 @@
                     <td>
                         <asp:Label ID="lblTotal" runat="server" Text='<%#(calculateTotal((Eval("price")).ToString(), (Eval("qty")).ToString())) %>'></asp:Label>
                     </td>
+                    <td>
+                        <asp:Button ID="del" runat="server" Text="Remove" CommandName="del" />
+                    </td>
                 </tr>
             </table>
         </ItemTemplate>
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ></asp:SqlDataSource>
 
-  <div style="text-align:right;padding:100px;">
+
+    <div style="text-align:center;margin:0 auto">
+    <asp:Label ID="Label1" runat="server" ></asp:Label>
+</div>
+  <div style="text-align:right;padding:100px">
+
       Total : <asp:Label ID="lblCartTotal" runat="server"></asp:Label>
       <br />
 
