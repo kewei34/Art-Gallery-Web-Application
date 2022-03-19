@@ -6,14 +6,19 @@
 <head runat="server">
     <link href="masterPage.css" rel="stylesheet" />
     <title>Login</title>
+<style>
+*{
+margin:0px auto;
+}
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="text-align:center;margin-top:60px;">
             <h1>Welcome To The Secret Garden !</h1>
         </div>
 
-        <div>
+        <div style="margin-top:30px;">
             <asp:Login ID="Login1" runat="server" BackColor="#FFFBD6" BorderColor="#FFDFAD" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop" DestinationPageUrl="~/homepage.aspx" RememberMeSet="True" RememberMeText="Remember me" Width="466px">
                 <LoginButtonStyle BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" />
                 <TextBoxStyle Font-Size="0.8em" />
@@ -22,7 +27,7 @@
         </div>
         <br />
 
-        <div>
+        <div style="text-align:center;">
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/register.aspx">Create a new account</asp:HyperLink>
         </div>
     </form>
