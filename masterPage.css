@@ -1,22 +1,26 @@
-﻿body{
-    background-color:blanchedalmond;
-}
-
-body, table, input, select {
+﻿body, table, input, select {
     font: 18pt Calibri;
 }
 
-
-td{
-   padding:10px;
+html {
+    background-color: antiquewhite;
 }
 
-#headerTb{
-    width:100%;
-    height : 100px;
+
+table {
+    background-color: white;
 }
 
-#headerBtn{
-    text-align:right;
-   
+td {
+    padding: 10px;
+}
+
+#headerTb {
+    width: 100%;
+    height: 100px;
+    background-color: antiquewhite;
+}
+
+#headerBtn {
+    text-align: right;
 }
