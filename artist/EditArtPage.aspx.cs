@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.Security;
 
 namespace WebApplication.artist
 {
@@ -15,6 +16,14 @@ namespace WebApplication.artist
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Page_PreRender(object o, System.EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = "SELECT * FROM art WHERE artist = '" + Membership.GetUser().ProviderUserKey + "';";
+            SqlDataSource1.Select(DataSourceSelectArguments.Empty);
+            SqlDataSource1.DataBind();
+            DataList1.DataBind();
         }
 
 
@@ -63,6 +72,9 @@ namespace WebApplication.artist
 
         }
 
-        
+        protected void addArtBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/artist/UploadArtPage.aspx");
+        }
     }
 }

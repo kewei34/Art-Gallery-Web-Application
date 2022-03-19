@@ -22,7 +22,7 @@ namespace WebApplication.Customer
             DataList1.DataBind();
 
             //calculate cart total
-            string sql = "SELECT art.price, cart.qty FROM art INNER JOIN cart ON art.Id = cart.itemId";
+            string sql = "SELECT art.price, cart.qty FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
             decimal total = 0;
 
             SqlConnection con = new SqlConnection(cs);
@@ -51,7 +51,7 @@ namespace WebApplication.Customer
 
         protected void checkout_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Customer/Checkout.aspx");
         }
     }
 }
