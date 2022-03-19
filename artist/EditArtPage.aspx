@@ -44,12 +44,13 @@
                     <td style="width:40px;max-width:40px;overflow-wrap: break-word;"><asp:Label ID="art_no" runat="server" Text="."></asp:Label></td>
                     <td style="width:165px;max-width:165px;overflow-wrap: break-word; text-align:center;">
                     <asp:Image ID="art_image" runat="server" src='<%# Eval("imgPath") %>' style="width:140px;max-width:140px;overflow-wrap: break-word;"/></td>
-                    <td style="width:140px;max-width:140px;overflow-wrap: break-word;">
+                    <td style="width:140px;max-width:140px;overflow-wrap: break-word;text-align:center">
                         <asp:Label ID="art_name" runat="server" Text='<%# Eval("name") %>'></asp:Label></td>
-                    <td style="width:150px;max-width:150px;overflow-wrap: break-word;">
-                        <asp:Label ID="art_price" runat="server" Text='<%# Eval("price") %>'></asp:Label>
+                    <td style="width:150px;max-width:150px;overflow-wrap: break-word;text-align:center">
+                        <asp:Label runat="server" Text="RM "></asp:Label>
+                        <asp:Label ID="art_price" runat="server" Text='<%# Eval("price") %>' style="text-align:center;"></asp:Label>
                     </td>
-                    <td style="width:130px;max-width:130px;overflow-wrap: break-word;">
+                    <td style="width:130px;max-width:130px;overflow-wrap: break-word;text-align:center;">
                         <asp:Label ID="art_qty" runat="server" Text='<%# Eval("qty") %>'></asp:Label></td>
                     <td style="width:270px;max-width:270px;overflow-wrap: break-word;">
                         <asp:Label ID="art_description" runat="server" Text='<%# Eval("description") %>'></asp:Label>
