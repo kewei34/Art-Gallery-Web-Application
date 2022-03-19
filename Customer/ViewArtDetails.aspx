@@ -3,15 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="text-align: center;">
+
+    <h1 style="text-align:center;">Art Details</h1>
+
+    <table border="1" style="text-align: center; border-collapse:collapse; margin:0px auto;border-style:dashed;">
         <tr>
             <td rowspan="4" colspan="2">
-                <asp:Image ID="dp_artImg" runat="server" Style="max-width: 500px; max-height: 500px" />
+                <asp:Image ID="dp_artImg" runat="server" style="max-width: 500px; max-height: 500px;box-shadow: 5px 5px 5px #ccc;" />
             </td>
             <td>
-                <div style="width: 500px;">
+                <div style="width: 500px; font-size:30px;">
                     <b>
-                        <asp:Label ID="dp_artName" runat="server" Style="overflow-wrap: break-word;"></asp:Label></b>
+                        <asp:Label ID="dp_artName" runat="server" style="overflow-wrap: break-word;"></asp:Label></b>
                 </div>
             </td>
         </tr>
