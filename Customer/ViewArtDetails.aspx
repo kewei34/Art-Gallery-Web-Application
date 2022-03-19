@@ -22,8 +22,8 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="dp_qty" runat="server" TextMode="Number" min="1" step="1" AutoPostBack="True"></asp:TextBox>
-                <asp:Button ID="addCart" runat="server" Text="Add To Cart" OnClick="addCart_Click" OnClientClick="alert(&quot;Item has been added to the cart.&quot;)" />
+                <asp:TextBox ID="dp_qty" runat="server" TextMode="Number" min="1" step="1" Text="1" AutoPostBack="True"></asp:TextBox>
+                <asp:Button ID="addCart" runat="server" Text="Add To Cart" OnClick="addCart_Click" />
 
             </td>
         </tr>

@@ -77,6 +77,7 @@
     <Content Include="Customer\Payment.aspx" />
     <Content Include="Customer\ViewArtDetails.aspx" />
     <Content Include="Customer\ViewCart.aspx" />
+    <Content Include="Customer\wishlist.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="login.aspx" />
     <Content Include="ManageAccount.aspx" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Customer\ViewCart.aspx.designer.cs">
       <DependentUpon>ViewCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\wishlist.aspx.cs">
+      <DependentUpon>wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\wishlist.aspx.designer.cs">
+      <DependentUpon>wishlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
