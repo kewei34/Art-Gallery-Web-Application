@@ -49,5 +49,9 @@ namespace WebApplication.Customer
             return "RM" + (p * q).ToString();
         }
 
+        protected void checkout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

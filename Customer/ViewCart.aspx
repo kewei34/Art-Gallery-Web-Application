@@ -43,7 +43,11 @@
     </asp:DataList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ></asp:SqlDataSource>
 
-  <div>
+  <div style="text-align:right">
       Total : <asp:Label ID="lblCartTotal" runat="server"></asp:Label>
+      
+      <asp:Button ID="checkout" runat="server" Text="Button" OnClick="checkout_Click" />
   </div>
+
+    
     </asp:Content>
