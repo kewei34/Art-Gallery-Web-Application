@@ -10,7 +10,7 @@
 
 namespace WebApplication.artist
 {
-    public partial class EditArtDetails
+    public partial class EditArtPage
     {
     }
 }
