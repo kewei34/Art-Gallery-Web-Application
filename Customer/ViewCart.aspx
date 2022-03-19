@@ -12,7 +12,7 @@
         }
     </style>
 
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand" style="margin:0px auto;>
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand" style="margin:0px auto;">
 
         <HeaderTemplate>
 
@@ -24,7 +24,8 @@
                     <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Art Name</td>
                     <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Art Price</td>
                     <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Art Quantity</td>
-                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Total Ammount</td>
+                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Total Amount</td>
+                    <td style="width:100px;max-width:100px;overflow-wrap: break-word; text-align:center;">Remove From Cart</td>
                     
                 </tr>
                 <tr>

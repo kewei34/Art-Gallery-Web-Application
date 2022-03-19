@@ -32,7 +32,8 @@
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imgPath") %>' style="width:300px;height:250px;max-width: 300px;  max-height: 300px;box-shadow:5px 5px 5px #ccc;" />
                     </td>
                     <td style="width:100px;max-width:100px;overflow-wrap:break-word;text-align:center;">
-                        <b><%# Eval("name") %> </b>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/Customer/ViewArtDetails.aspx?Id=" + Eval("Id") %>'><%# Eval("name") %></asp:HyperLink>
+                        
                     </td>
                     <td style="width:100px;max-width:100px;overflow-wrap:break-word">
                         <b>
