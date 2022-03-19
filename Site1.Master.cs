@@ -14,5 +14,14 @@ namespace WebApplication
 
         }
 
+        protected void cartBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer/ViewCart.aspx");
+        }
+
+        protected void wishlishBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Customer/wishlist.aspx");
+        }
     }
 }

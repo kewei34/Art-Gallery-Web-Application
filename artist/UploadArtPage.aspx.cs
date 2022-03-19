@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.Security;
 
 namespace WebApplication.artist
 {
@@ -29,13 +30,11 @@ namespace WebApplication.artist
                 {
                     art_quantity_warning_text.Text = "Please enter number between 1-100 only";
                 }
-            
-
-            
         }
 
         protected void button_submit_art_Click(object sender, EventArgs e)
         {
+            string userId = Membership.GetUser().ProviderUserKey.ToString();
 
             string fileName = art_image_upload.FileName;
             string name = art_name.Text;
@@ -49,7 +48,7 @@ namespace WebApplication.artist
             string path = "/image/" + fileName.ToString();
 
 
-            string sql = "INSERT INTO art(imgPath,name,price,qty,description) VALUES (@Imgpath,@Name,@Price,@Qty,@Desc)";
+            string sql = "INSERT INTO art(imgPath,name,price,qty,description,artist) VALUES (@Imgpath,@Name,@Price,@Qty,@Desc,@Id)";
 
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -59,6 +58,7 @@ namespace WebApplication.artist
             cmd.Parameters.AddWithValue("@Price", price);
             cmd.Parameters.AddWithValue("@Qty", qty);
             cmd.Parameters.AddWithValue("@Desc", desc);
+            cmd.Parameters.AddWithValue("@Id", userId);
 
             con.Open();
             cmd.ExecuteNonQuery();

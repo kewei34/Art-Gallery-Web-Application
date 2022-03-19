@@ -15,12 +15,12 @@
             <table id="headerTb">
                 <tr>
                     <td>
-                        <h2>Artwork Sales and Display Gallery</h2>
+                        <h2>The Secret Garden Artwork Gallery</h2>
                     </td>
                     <td id="headerBtn">
                         
-                        <asp:Button ID="wishlishBtn" runat="server" Text="❤" />
-                        <asp:Button ID="cartBtn" runat="server" Text="My Cart" />
+                        <asp:Button ID="wishlishBtn" runat="server" Text="❤" OnClick="wishlishBtn_Click" />
+                        <asp:Button ID="cartBtn" runat="server" Text="My Cart" OnClick="cartBtn_Click" />
                         
                         &nbsp;&nbsp;
                       <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>

@@ -1,11 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
 
-  <siteMapNode url="" title="Homepage"  description="">
-    <siteMapNode url="" title="My Gallery"  description=""/>
-    <siteMapNode url="" title="My Gallery"  description=""/>
-    <siteMapNode url="" title="My Gallery"  description=""/>
-    <siteMapNode url="" title="My Gallery"  description=""/>
+  <siteMapNode url="homepage.aspx" title="Homepage"  description="">
+    <siteMapNode url="~/Customer/wishlist.aspx" title="Wishlist"  description=""/>
+    <siteMapNode url="~/Customer/ViewCart.aspx" title="My Cart"  description="">
+      <siteMapNode url="" title="Checkout">
+        <siteMapNode url="payment.aspx" title="Payment"/>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="~/Customer/ViewArtDetails.aspx" title="Art Details"  description=""/>
+    <siteMapNode url="~/artist/EditArtPage.aspx" title="My Art"  description="">
+      <siteMapNode url="~/artist/UploadArtPage.aspx" title="Add Art"/>
+      <siteMapNode url="~/artist/EditArtDetails.aspx" title="Edit Art"/>
+    </siteMapNode>
   </siteMapNode>
 
   

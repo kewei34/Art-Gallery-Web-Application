@@ -13,6 +13,9 @@
     </style>
 
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+        <HeaderTemplate>
+
+        </HeaderTemplate>
         <ItemTemplate>
             <table id="cart">
                 <tr>
@@ -20,7 +23,7 @@
                         <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("imgPath") %>' style="max-width: 300px; max-height: 300px" />
                     </td>
                     <td>
-                        <b><%# Eval("name") %></b>
+                        <b><%# Eval("name") %> </b>
                     </td>
                     <td>
                         <b>
@@ -38,5 +41,9 @@
             </table>
         </ItemTemplate>
     </asp:DataList>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT art.name, art.price, art.imgPath, cart.qty FROM art INNER JOIN cart ON art.Id = cart.itemId"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ></asp:SqlDataSource>
+
+  <div>
+      Total : <asp:Label ID="lblCartTotal" runat="server"></asp:Label>
+  </div>
     </asp:Content>
