@@ -21,11 +21,11 @@ margin:0px auto;
 
 
         <div style="margin-top:30px;">
-            <asp:Login ID="Login1" runat="server" BackColor="#FFFBD6" BorderColor="#FFDFAD" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop" DestinationPageUrl="~/homepage.aspx" RememberMeSet="True" RememberMeText="Remember me" Width="466px">
-                <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                <LoginButtonStyle BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" />
-                <TextBoxStyle Font-Size="0.8em" />
-                <TitleTextStyle BackColor="#990000" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+            <asp:Login ID="Login1" runat="server" BackColor="#FFFBD6" BorderColor="#FFDFAD" BorderPadding="4" BorderStyle="Solid" BorderWidth="3px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop" DestinationPageUrl="~/homepage.aspx" RememberMeSet="True" RememberMeText="Remember me" Width="466px" color>
+                <InstructionTextStyle  Font-Italic="True" ForeColor="Black"  Font-Bold="true"/>
+                <LoginButtonStyle BackColor="White" BorderColor="#CC9966" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="1.1em" ForeColor="#990000" />
+                <TextBoxStyle Font-Size="1.1em"  />
+                <TitleTextStyle BackColor="#990000" Font-Bold="True" Font-Size="1.2em" ForeColor="White" />
             </asp:Login>
         </div>
         <br />

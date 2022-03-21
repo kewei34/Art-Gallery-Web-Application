@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="text-align:center;">
-        <asp:Label ID="payment_status_label" runat="server" Text="Your payment is sucessful ! "></asp:Label>
+    <div style="text-align:center;font-size:40px;">
+       <b><asp:Label ID="payment_status_label" runat="server" Text="Your payment is successful ! "> </asp:Label></b>
         <br />
         <div style="padding:30px">
-<asp:Button ID="Button1" runat="server" Text="Back To Homepage" OnClick="Button1_Click" />
+<asp:Button ID="Button1" runat="server" Text="Back To Homepage" OnClick="Button1_Click" style="font-weight:600;padding:8px;" />
         </div>
         
     </div>

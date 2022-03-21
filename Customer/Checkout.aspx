@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table border="1" style="border-collapse:separate; margin:0px auto;">
+    <table border="1" style="border-collapse:collapse; margin:0px auto;border: black 2px solid;padding:20px;background-color:ivory; ">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text=" Name :"></asp:Label>
@@ -23,7 +23,7 @@
             <td>
                <b>Total to Pay : </b>
             </td>
-            <td>
+            <td style="font-weight:600;">
             <asp:Label ID="lblTotal" runat="server" Text="Label"></asp:Label>
             </td>
         </tr>
@@ -31,10 +31,11 @@
             <td>
                 &nbsp;</td>
             <td style="text-align:center;">
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Pay Now" />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="font-weight:600;padding:5px;"  Text="Pay Now" />
             </td>
         </tr>
     </table>
+    <br />
     
 
 

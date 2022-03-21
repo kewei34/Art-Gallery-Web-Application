@@ -15,12 +15,12 @@
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# "~/Customer/ViewArtDetails.aspx?Id=" + Eval("Id") %>' >
                 <table class ="table1" style="text-align:center;outline:solid black 2px;height:450px;max-height:450px;">
                     <tr>
-                        <td style="width:350px;height:350px"> 
+                        <td style="width:350px;height:350px;background-color:ivory;"> 
                             
                            <asp:Image ID="Image1" runat="server" style="width:300px; height:250px;max-width:300px;max-height:250px;box-shadow:5px 5px 5px #ccc;" src='<%# Eval("imgPath") %>' />
                         </td>
                         <tr>
-                           <td style="max-width:300px;height:140px; max-height:140px;overflow-wrap: break-word;">
+                           <td style="max-width:300px;height:140px; max-height:140px;overflow-wrap: break-word;background-color:ivory;">
                                <p style="margin-top:-20px;font-family:Arial, Helvetica, sans-serif">
                            <b><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/Customer/ViewArtDetails.aspx?Id=" + Eval("Id") %>' ><%# Eval("name") %>
                                </asp:HyperLink>
@@ -28,8 +28,8 @@
                          </td>
                         </tr>
                         <tr>
-                            <td>
-                            <p style="margin-top:-10px">
+                            <td style="background-color:ivory;">
+                            <p style="margin-top:-10px;font-weight:bold;">
                                 RM <%# Eval("price") %>
                             </p>
                         </td>

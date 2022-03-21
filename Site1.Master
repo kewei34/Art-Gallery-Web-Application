@@ -15,7 +15,7 @@
             <table id="headerTb">
                 <tr>
                     <td>
-                        <h2>🌺The Secret Garden Artwork Gallery</h2>
+                        <h2>🖼️The Secret Garden Artwork Gallery</h2>
                     </td>
                     <td id="headerBtn">
                         
@@ -37,8 +37,8 @@
 
         <br />
 
-        <div style="margin:10px 0px 50px 20px">
-            <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
+        <div style="margin:10px 0px 50px 20px; font-weight:900;font-size:30px;">
+            <asp:SiteMapPath ID="SiteMapPath1" runat="server" ></asp:SiteMapPath>
             
             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
         </div>
@@ -49,6 +49,7 @@
         </div>
         <div id="footer" style="text-align:center;">
             <h5>Copyright 1999-2022 by The Secret Garden Sdn Bhd. <br />All Right Reserves.</h5>
+            <br />
         </div>
     </form>
 </body>
