@@ -56,7 +56,7 @@ namespace WebApplication.Customer
         {
             decimal p = decimal.Parse(price);
             decimal q = decimal.Parse(qty);
-            return "RM" + (p * q).ToString();
+            return "RM " + (p * q).ToString();
         }
 
         protected void checkout_Click(object sender, EventArgs e)

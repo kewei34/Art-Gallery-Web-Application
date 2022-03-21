@@ -1,32 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="WebApplication.homepage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+       
+        .table1 tr, .table td{
+            background-color:white;
+            /*background-image:url("css_image/flower_bg.jpg");*/
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="0" RepeatColumns="3" style="margin:0 auto" >
+    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="0" RepeatColumns="3" style="margin:0 auto; background-color:antiquewhite;" >
         <ItemTemplate>
             <div style="padding:10px;justify-content:center">
-                <table style="text-align:center;padding:10px;outline:solid black 1px;height:600px;">
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl='<%# "~/Customer/ViewArtDetails.aspx?Id=" + Eval("Id") %>' >
+                <table class ="table1" style="text-align:center;outline:solid black 2px;height:450px;max-height:450px;">
                     <tr>
                         <td style="width:350px;height:350px"> 
-                           <asp:Image ID="Image1" runat="server" style="max-width:300px;max-height:300px" src='<%# Eval("imgPath") %>' />
+                            
+                           <asp:Image ID="Image1" runat="server" style="width:300px; height:250px;max-width:300px;max-height:250px;box-shadow:5px 5px 5px #ccc;" src='<%# Eval("imgPath") %>' />
                         </td>
                         <tr>
-                           <td style="max-width:300px;overflow-wrap: break-word;">
-                            <b>
-                               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/Customer/ViewArtDetails.aspx?Id=" + Eval("Id") %>'><%# Eval("name") %>
+                           <td style="max-width:300px;height:140px; max-height:140px;overflow-wrap: break-word;">
+                               <p style="margin-top:-20px;font-family:Arial, Helvetica, sans-serif">
+                           <b><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# "~/Customer/ViewArtDetails.aspx?Id=" + Eval("Id") %>' ><%# Eval("name") %>
                                </asp:HyperLink>
-                            </b>
+                            </b></p>
                          </td>
                         </tr>
                         <tr>
                             <td>
-                            <p>
+                            <p style="margin-top:-10px">
                                 RM <%# Eval("price") %>
                             </p>
                         </td>
                         </tr>              
                     </tr>
-                </table>
+                </table></asp:HyperLink>
             </div>
         </ItemTemplate>
        
