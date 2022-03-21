@@ -17,7 +17,7 @@
             <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" style="width:100px"  />
         </div>
         <div>
-            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/login.aspx" InvalidQuestionErrorMessage="" style="margin:0px auto;text-align:center;">
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/login.aspx" InvalidQuestionErrorMessage="" style="margin:0px auto;text-align:center;background-color:lemonchiffon">
                 <WizardSteps>
                     <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                         <ContentTemplate >
@@ -74,7 +74,7 @@
                             </table>
                         </ContentTemplate>
                         <CustomNavigationTemplate>
-                            <table border="0" cellspacing="5" style="width:100%;height:100%;">
+                            <table border="0" cellspacing="5" style="width:100%;height:100%;margin-top:-20px;">
                                 <tr align="right">
                                     <td align="right" colspan="0">
                                         <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Create User" ValidationGroup="CreateUserWizard1" />

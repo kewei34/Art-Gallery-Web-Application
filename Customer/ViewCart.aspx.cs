@@ -35,6 +35,16 @@ namespace WebApplication.Customer
             if (!dr.HasRows)
             {
                 Label1.Text = "Your Cart is Empty !";
+                lblCartTotal.Visible = false;
+                checkout.Visible = false;
+                showTotal.Visible = false;
+                
+            }
+            else
+            {
+                lblCartTotal.Visible = true;
+                checkout.Visible = true;
+                showTotal.Visible = true;
             }
             lblCartTotal.Text = total.ToString();
 
