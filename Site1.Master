@@ -15,17 +15,17 @@
             <table id="headerTb">
                 <tr>
                     <td>
-                        <h2>The Secret Garden Artwork Gallery</h2>
+                        <h2>🌺The Secret Garden Artwork Gallery</h2>
                     </td>
                     <td id="headerBtn">
                         
-                        <asp:Button ID="wishlishBtn" runat="server" Text="❤" OnClick="wishlishBtn_Click" />
+                        <asp:Button ID="wishlishBtn" runat="server" Text="❤" OnClick="wishlishBtn_Click" style="height:38.5px;max-height:38.5px;margin-top:3px;" />
                         &nbsp;
-                        <asp:Button ID="cartBtn" runat="server" Text="My Cart" OnClick="cartBtn_Click" />
+                        <asp:Button ID="cartBtn" runat="server" Text="My Cart" OnClick="cartBtn_Click" style="height:38.5px;max-height:38.5px"/>
                         &nbsp;
-                        <asp:Button ID="artBtn" runat="server" Text="My Art" OnClick="artBtn_Click" />
+                        <asp:Button ID="artBtn" runat="server" Text="My Art" OnClick="artBtn_Click" style="height:38.5px;max-height:38.5px"/>
                         &nbsp;
-                        <asp:Button ID="accBtn" runat="server" Text="Profile" OnClick="accBtn_Click" />
+                        <asp:Button ID="accBtn" runat="server" Text="Profile" OnClick="accBtn_Click" style="height:38.5px;max-height:38.5px"/>
                         &nbsp;&nbsp;
                       <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>
                         &nbsp;&nbsp;
@@ -47,8 +47,8 @@
             </asp:ContentPlaceHolder>
             
         </div>
-        <div id="footer">
-            <h3>Footer</h3>
+        <div id="footer" style="text-align:center;">
+            <h5>Copyright 1999-2022 by The Secret Garden Sdn Bhd. <br />All Right Reserves.</h5>
         </div>
     </form>
 </body>

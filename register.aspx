@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Register</title>
+    <link href="masterPage.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,11 +17,11 @@
             <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" style="width:100px"  />
         </div>
         <div>
-            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/login.aspx" InvalidQuestionErrorMessage="" >
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/login.aspx" InvalidQuestionErrorMessage="" style="margin:0px auto;text-align:center;">
                 <WizardSteps>
                     <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
-                        <ContentTemplate>
-                            <table>
+                        <ContentTemplate >
+                            <table style="margin:0px auto;text-align:center;">
                                 <tr>
                                     <td align="center" colspan="2">Sign Up</td>
                                 </tr>
