@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+      <h1 style="text-align:center;">💵Checkout</h1>
     <table border="1" style="border-collapse:collapse; margin:0px auto;border: black 2px solid;padding:20px;background-color:ivory; ">
         <tr>
             <td>

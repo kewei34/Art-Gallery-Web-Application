@@ -56,7 +56,7 @@ namespace WebApplication.Customer
         protected void Page_PreRender(object o, System.EventArgs e)
         {
             //bind datasource 
-            SqlDataSource1.SelectCommand = "SELECT cart.Id ,art.name, art.price, art.imgPath, cart.qty , art.artist FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId = '" + Membership.GetUser().ProviderUserKey + "';";
+            SqlDataSource1.SelectCommand = "SELECT cart.Id, art.Id AS artId,art.name, art.price, art.imgPath, cart.qty , art.artist FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId = '" + Membership.GetUser().ProviderUserKey + "';";
             SqlDataSource1.Select(DataSourceSelectArguments.Empty);
             SqlDataSource1.DataBind();
             DataList1.DataBind();
