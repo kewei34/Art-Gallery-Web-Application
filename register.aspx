@@ -9,13 +9,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="text-align:center">
             <h1>Welcome to The Secret Garden !</h1>
         </div>
 
-        <div style="padding:30px;">
-            <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" style="width:100px"  />
-        </div>
         <div>
             <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/login.aspx" InvalidQuestionErrorMessage="" style="margin:0px auto;text-align:center;background-color:lemonchiffon">
                 <WizardSteps>
@@ -75,8 +72,11 @@
                         </ContentTemplate>
                         <CustomNavigationTemplate>
                             <table border="0" cellspacing="5" style="width:100%;height:100%;margin-top:-20px;">
-                                <tr align="right">
-                                    <td align="right" colspan="0">
+                                <tr style="text-align:center">
+                                    <td>
+                                        <asp:Button ID="Button1" runat="server" Text="Back" OnClick="Button1_Click" style="width:100px"  />
+                                    </td>
+                                    <td>
                                         <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Create User" ValidationGroup="CreateUserWizard1" />
                                     </td>
                                 </tr>

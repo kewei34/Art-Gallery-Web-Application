@@ -11,7 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 style="text-align:center;">🌄Edit My Art</h1>
     <asp:Label ID="lblId" runat="server" Text="" style="visibility:hidden;"></asp:Label>
-    <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;">
+    <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;width:550px;">
         <tr class="noborder">
             <td><b><asp:Label runat="server" Text="Current Art Preview :"></asp:Label></b></td>
         </tr>
@@ -47,7 +47,7 @@
             <td><b><asp:Label runat="server" Text="Art Description: "></asp:Label></b></td>
         </tr>
         <tr>
-            <td><asp:TextBox ID="art_description" style="width:300px;height:200px;box-sizing: border-box;overflow-wrap: break-word;" runat="server"></asp:TextBox></td>
+            <td><asp:TextBox ID="art_description" style="box-sizing: border-box;overflow-wrap: break-word;resize:none" runat="server" Font-Size="14pt" Height="286px" TextMode="MultiLine" Width="415px"></asp:TextBox></td>
         </tr>
     </table>
     <table border="0" style="margin:0px auto;text-align:center;">
