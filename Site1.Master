@@ -15,7 +15,9 @@
             <table id="headerTb">
                 <tr>
                     <td>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/homepage.aspx">
                         <h2>🖼️The Secret Garden Artwork Gallery</h2>
+                        </asp:HyperLink>
                     </td>
                     <td id="headerBtn">
                         

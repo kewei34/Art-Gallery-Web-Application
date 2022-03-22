@@ -27,7 +27,7 @@
         }
 
     </style>
-    
+    <h1 style="text-align:center;">💖My Wishlist</h1><br />
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="DataList1_ItemCommand" style="background-color:antiquewhite;">
         
         <HeaderTemplate>

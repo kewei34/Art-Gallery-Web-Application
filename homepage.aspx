@@ -9,6 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1 style="text-align:center;">🎨Welcome To Our Art Gallery🖼️</h1>
     <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" CellPadding="0" RepeatColumns="3" style="margin:0 auto; background-color:antiquewhite;" >
         <ItemTemplate>
             <div style="padding:10px;justify-content:center">

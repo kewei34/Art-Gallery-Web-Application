@@ -10,6 +10,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1 style="text-align:center;">🎭My Profile</h1><br />
     <asp:Label ID="lblId" runat="server" Text="" style="visibility:hidden;"></asp:Label>
     <table border="1" style="border-collapse:collapse; border: black 2px solid; text-align:center;margin:0px auto;width:700px;overflow-wrap:break-word; max-width:700px;background-color:white;">
                
