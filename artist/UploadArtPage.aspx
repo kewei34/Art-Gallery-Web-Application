@@ -27,8 +27,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    //content here
-    <h1 style="text-align:center;">Upload Art Page</h1>
+
+    <h1 style="text-align:center;">🖌️Upload New Art</h1>
     
     <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;">
         <tr class="specialtr">

@@ -12,7 +12,7 @@
     </siteMapNode>
     <siteMapNode url="~/Customer/ViewArtDetails.aspx" title="Art Details"  description=""/>
     <siteMapNode url="~/artist/EditArtPage.aspx" title="My Art"  description="">
-      <siteMapNode url="~/artist/UploadArtPage.aspx" title="Add Art"/>
+      <siteMapNode url="~/artist/UploadArtPage.aspx" title="Upload Art"/>
       <siteMapNode url="~/artist/EditArtDetails.aspx" title="Edit Art"/>
     </siteMapNode>
   </siteMapNode>

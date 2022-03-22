@@ -9,6 +9,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1 style="text-align:center;">🌄Edit My Art</h1>
     <asp:Label ID="lblId" runat="server" Text="" style="visibility:hidden;"></asp:Label>
     <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;">
         <tr class="noborder">
