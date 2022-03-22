@@ -18,6 +18,10 @@
             height:50px; 
             text-align:center;
         }
+        .specialtr{
+            background-color:ivory;
+            border: black 2px solid;
+        }
     </style>
 </asp:Content>
 
@@ -26,27 +30,27 @@
     //content here
     <h1 style="text-align:center;">Upload Art Page</h1>
     
-    <table border="1" style="margin:0px auto;">
-        <tr>
+    <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;">
+        <tr class="specialtr">
             <td class="auto-style1">Art Image</td>            
         </tr>
         <tr>
             <td style="margin-left: 80px" class="auto-style1"><asp:FileUpload ID="art_image_upload" runat="server" accept=".png,.jpg,.jpeg" /></td>            
         </tr>
            
-        <tr>
+        <tr class="specialtr">
             <td class="auto-style1">Art Name</td>
         </tr>
         <tr>
             <td class="auto-style1"><asp:TextBox ID="art_name" runat="server" MaxLength="99"></asp:TextBox></td>
         </tr>
-        <tr>
+        <tr class="specialtr">
             <td class="auto-style1">Art Price</td>
         </tr>
         <tr>
             <td class="auto-style2"><asp:TextBox ID="art_price" runat="server" MaxLength="20"></asp:TextBox></td>
         </tr>
-        <tr>
+        <tr class="specialtr">
             <td class="auto-style1">Art Quantity</td>
         </tr>
         <tr >
@@ -55,22 +59,16 @@
 
             </td>  
         </tr>
-        <tr>
+        <tr class="specialtr">
             <td class="auto-style1">Art Description</td>
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="art_desc" runat="server" Height="300px" Width="600px"></asp:TextBox>
+                <asp:TextBox ID="art_desc" runat="server" Height="300px" Width="600px"></asp:TextBox><br />
             </td>
-        </tr>
-        <%--<tr>
-            <td class="auto-style1">Art Categories</td>
-        </tr>
-        <tr>
-            <td>
-                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList></td>
-        </tr>--%>
-        <tr><td></td></tr>
+            
+        </tr>      
+        
         <tr>
             <td style="text-align:center">
                 <asp:Button ID="button_submit_art" runat="server" style="width:100px;height:50px;text-align:center;font-weight:bold;" Text="Submit" OnClick="button_submit_art_Click" /></td>

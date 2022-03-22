@@ -1,10 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="EditArtPage.aspx.cs" Inherits="WebApplication.artist.EditArtDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        #art_image.hover {
-            -ms-transform: scale(1.2); /* IE 9 */
-            -webkit-transform: scale(1.2); /* Safari 3-8 */
-            transform: scale(1.2);
+        #table1 td{
+            border: black 2px solid;
+            padding : 10px 20px;
+            
+        }
+        #table1{
+            border-collapse:collapse;
+            margin:0px auto;
+            margin-bottom:-22px;
+            background-color:white;
+        }
+        #table2 td{
+            border: black 2px solid;
+            padding : 10px 20px;
+        }
+        #table2{
+            border-collapse:collapse;
+            background-color:ivory;
+            margin:0px auto;
+            margin-bottom:-22px;
+            border-collapse:collapse;
         }
     </style>
     <script>
@@ -24,11 +41,13 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="text-align:right;margin: 50px auto;width:80%">
+    <div style="text-align:right;margin: 50px auto;width:95%">
         <asp:Button ID="addArtBtn" runat="server" Text="Add New Art" OnClick="addArtBtn_Click" />
     </div>
-
-    <table border="1" style="margin:0px auto; border-collapse:collapse;">
+    
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="Id" DataSourceID="SqlDataSource1" style="margin:0px auto;" OnItemCommand="DataList1_ItemCommand">
+        <HeaderTemplate>
+            <table id="table2" >
         <tr>
                     
                     <td style="width:165px;max-width:165px;overflow-wrap: break-word; text-align:center;">Artwork Preview</td>
@@ -39,15 +58,14 @@
                     <td style="width:150px;max-width:150px;overflow-wrap: break-word; text-align:center;">Edit / Delete</td>
                 </tr>    
         </table>
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="Id" DataSourceID="SqlDataSource1" style="margin:0px auto;" OnItemCommand="DataList1_ItemCommand">
-        
+        </HeaderTemplate>
         <ItemTemplate>
-            <table border="1" style="border-collapse:collapse; box-shadow: 1px 1px;">    
+            <table id="table1" >    
                                         
-                <tr style="margin: 0px auto;">
+                <tr >
                    
                     <td style="width:165px;max-width:165px;overflow-wrap: break-word; text-align:center;">
-                    <asp:Image ID="art_image" runat="server" src='<%# Eval("imgPath") %>' style="width:140px;max-width:140px;overflow-wrap: break-word;"/></td>
+                    <asp:Image ID="art_image" runat="server" src='<%# Eval("imgPath") %>' style="width:160px;max-width:160px;padding:0px;"/></td>
                     <td style="width:140px;max-width:140px;overflow-wrap: break-word;text-align:center">
                         <asp:Label ID="art_name" runat="server" Text='<%# Eval("name") %>'></asp:Label></td>
                     <td style="width:150px;max-width:150px;overflow-wrap: break-word;text-align:center">
@@ -57,7 +75,7 @@
                     <td style="width:130px;max-width:130px;overflow-wrap: break-word;text-align:center;">
                         <asp:Label ID="art_qty" runat="server" Text='<%# Eval("qty") %>'></asp:Label></td>
                     <td style="width:270px;max-width:270px;overflow-wrap: break-word;">
-                        <asp:Label ID="art_description" runat="server" Text='<%# Eval("description") %>'></asp:Label>
+                        <asp:Label ID="art_description" runat="server" style="width:270px;max-width:270px;overflow-wrap: break-word;" Text='<%# Eval("description") %>'></asp:Label>
                     </td>
                     <td style="width:150px;max-width:150px;overflow-wrap: break-word;">
                         <asp:Button ID="button_art_edit" runat="server" Text="Edit" style="width:60px;height:40px;" CommandName="edit"/>     

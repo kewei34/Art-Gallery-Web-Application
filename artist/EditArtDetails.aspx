@@ -2,50 +2,50 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         .noborder{
-            border:outset;
-
+            background-color:ivory;
+            border: black 2px solid;
         }
         
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Label ID="lblId" runat="server" Text="" style="visibility:hidden;"></asp:Label>
-    <table border="1" style="border-collapse:separate; text-align:center;margin:0px auto;">
-        <tr>
+    <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;">
+        <tr class="noborder">
             <td><b><asp:Label runat="server" Text="Current Art Preview :"></asp:Label></b></td>
         </tr>
-        <tr class="noborder">
+        <tr >
             <td>
                 <asp:Image ID="art_image" alt="Art Image" style="width:200px;height:150px;" runat="server" /></td>
         </tr>
-        <tr class="noborder">
+        <tr >
             <td><asp:FileUpload ID="art_image_upload" runat="server" accept=".png,.jpg,.jpeg" /></td>
         </tr>
-        <tr>
+        <tr class="noborder">
             <td><b><asp:Label runat="server" Text="Art Name: "></asp:Label></b></td>
         </tr>
         
-        <tr class="noborder">
+        <tr >
             <td><asp:TextBox ID="art_name" style="width:300px;box-sizing: border-box; text-align:center;" runat="server"></asp:TextBox></td>
         </tr>
-        <tr>
+        <tr class="noborder">
             <td><b><asp:Label runat="server" Text="Art Price: "></asp:Label></b></td>
         </tr>
-        <tr class="noborder">
+        <tr >
             <td><asp:Label  runat="server" Text="RM: "></asp:Label> <asp:TextBox ID="art_price" runat="server"></asp:TextBox></td>
         </tr>
 
-        <tr>
+        <tr class="noborder">
             <td><b><asp:Label runat="server" Text="Art Quantity: "></asp:Label></b></td>
         </tr>
-        <tr class="noborder">
+        <tr>
             <td><asp:TextBox ID="art_qty" style="width:300px;box-sizing: border-box;text-align:center;" runat="server"></asp:TextBox></td>
         </tr>
 
-        <tr>
+        <tr class="noborder">
             <td><b><asp:Label runat="server" Text="Art Description: "></asp:Label></b></td>
         </tr>
-        <tr class="noborder">
+        <tr>
             <td><asp:TextBox ID="art_description" style="width:300px;height:200px;box-sizing: border-box;overflow-wrap: break-word;" runat="server"></asp:TextBox></td>
         </tr>
     </table>

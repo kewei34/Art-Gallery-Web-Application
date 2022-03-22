@@ -44,14 +44,17 @@ namespace WebApplication.artist
 
 
                         SqlConnection con = new SqlConnection(cs);
-                        SqlCommand cmd = new SqlCommand(sql, con);
                         SqlCommand cmd2 = new SqlCommand(sql2, con);
-                        cmd.Parameters.AddWithValue("@Id", id);
+                        SqlCommand cmd = new SqlCommand(sql, con);                        
                         cmd2.Parameters.AddWithValue("@Id", id);
+                        cmd.Parameters.AddWithValue("@Id", id);
+                        
 
                         con.Open();
                         cmd2.ExecuteNonQuery();
                         cmd.ExecuteNonQuery();
+                        
+                        
                         con.Close();
 
                         Response.Redirect("EditArtPage.aspx");
