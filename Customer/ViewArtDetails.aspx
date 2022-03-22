@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1 style="text-align:center;">🧑‍🎨Art Details</h1>
+    <h1 style="text-align:center;">🎨Art Details</h1>
 
     <table border="1" style="text-align: center; border-collapse:collapse; margin:0px auto;border: black 2px solid;background-color:ivory;width:1000px;max-width:1000px;">
         <tr>

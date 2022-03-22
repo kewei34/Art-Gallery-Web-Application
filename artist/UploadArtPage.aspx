@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="art_desc" runat="server" Height="300px" Width="600px"></asp:TextBox><br />
+                <asp:TextBox ID="art_desc" runat="server" Height="300px" Width="600px" Font-Size="14pt" TextMode="MultiLine" style="resize:none"></asp:TextBox><br />
             </td>
             
         </tr>      

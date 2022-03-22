@@ -41,7 +41,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="text-align:center;">🎨My Own Art</h1>
+    <h1 style="text-align:center;">🎨My Art</h1>
     <div style="text-align:right;margin: 50px auto;margin-top:0px;width:95%">
         <asp:Button ID="addArtBtn" runat="server" Text="Add New Art" OnClick="addArtBtn_Click" />
     </div>

@@ -68,7 +68,7 @@ namespace WebApplication.artist
                 }
                 else
                 {
-                    new_imagepath = art_image.ImageUrl;
+                    path = art_image.ImageUrl;
                 }
                 string price = art_price.Text;
                 string qty = art_qty.Text;

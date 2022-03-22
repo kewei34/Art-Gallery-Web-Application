@@ -41,16 +41,21 @@ namespace WebApplication.artist
 
                         string sql = "DELETE FROM art where Id =@Id";
                         string sql2 = "DELETE FROM cart where itemId =@Id";
+                        string sql3 = "DELETE FROM wishlist where itemId =@Id";
 
 
                         SqlConnection con = new SqlConnection(cs);
+                        SqlCommand cmd3 = new SqlCommand(sql3, con);
                         SqlCommand cmd2 = new SqlCommand(sql2, con);
-                        SqlCommand cmd = new SqlCommand(sql, con);                        
+                        SqlCommand cmd = new SqlCommand(sql, con);
+
+                        cmd3.Parameters.AddWithValue("@Id", id);
                         cmd2.Parameters.AddWithValue("@Id", id);
                         cmd.Parameters.AddWithValue("@Id", id);
                         
 
                         con.Open();
+                        cmd3.ExecuteNonQuery();
                         cmd2.ExecuteNonQuery();
                         cmd.ExecuteNonQuery();
                         
