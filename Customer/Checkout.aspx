@@ -10,7 +10,7 @@
                 <asp:Label ID="Label1" runat="server" Text=" Name :"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox1" runat="server" Width="437px"></asp:TextBox>
+                <asp:TextBox ID="name1" runat="server" Width="437px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -18,7 +18,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Address :"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox2" runat="server" Height="208px" Width="444px"></asp:TextBox>
+                <asp:TextBox ID="address1" runat="server" Height="208px" Width="444px"></asp:TextBox>
             </td>
         </tr>
         <tr>
