@@ -78,6 +78,9 @@
     <Content Include="Customer\ViewArtDetails.aspx" />
     <Content Include="Customer\ViewCart.aspx" />
     <Content Include="Customer\wishlist.aspx" />
+    <Content Include="error403.aspx" />
+    <Content Include="error404.aspx" />
+    <Content Include="error500.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="login.aspx" />
     <Content Include="ManageAccount.aspx" />
@@ -136,6 +139,27 @@
     </Compile>
     <Compile Include="Customer\wishlist.aspx.designer.cs">
       <DependentUpon>wishlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error403.aspx.cs">
+      <DependentUpon>error403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error403.aspx.designer.cs">
+      <DependentUpon>error403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error404.aspx.cs">
+      <DependentUpon>error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error404.aspx.designer.cs">
+      <DependentUpon>error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error500.aspx.cs">
+      <DependentUpon>error500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error500.aspx.designer.cs">
+      <DependentUpon>error500.aspx</DependentUpon>
     </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
