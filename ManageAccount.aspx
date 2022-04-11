@@ -10,11 +10,13 @@
 
         }
     </style>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 style="text-align:center;">🧑My Profile👧</h1><br />
     <asp:Label ID="lblId" runat="server" Text="" style="visibility:hidden;"></asp:Label>
     <asp:Label ID="newR" runat="server" Text="" style="visibility:hidden;"></asp:Label>
+    <asp:Label ID="userGenderValue" runat="server" Text="" style="visibility:hidden;" ></asp:Label> 
     <table style="border-collapse:collapse; border: black 2px solid; text-align:center;margin:0px auto;width:700px;overflow-wrap:break-word; max-width:700px;background-color:white;">
                
         <tr class="title">
@@ -49,21 +51,15 @@
             <td><b><asp:Label runat="server" Text="Gender"></asp:Label></b></td>
         </tr>
         <tr id="gender_row_none" style="border:outset;" >
-            <td >                
-                <asp:RadioButtonList ID="user_gender" runat="server" style="text-align:center; width:100%;">
+            <td id="gender_row_none1">                
+                <asp:RadioButtonList class="show_option" ID="user_gender" runat="server" style="text-align:center; width:100%;">
                     <asp:ListItem Value="M">Male 👨</asp:ListItem>
                     <asp:ListItem Value="F">Female 👧</asp:ListItem>
                 </asp:RadioButtonList>
-                <asp:Button ID="editGender" runat="server" Text="Update" ValidationGroup="gender_edit" />            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="&lt;br/&gt; Please choose your gender!" ControlToValidate="user_gender" CssClass="error" Display="Dynamic" SetFocusOnError="True" ValidationGroup="gender_edit" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>    
-               
+                <asp:Button class="show_option" ID="editGender" runat="server" Text="Update" ValidationGroup="gender_edit" OnClick="editGender_Click" />            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="&lt;br/&gt; Please choose your gender!" ControlToValidate="user_gender" CssClass="error" Display="Dynamic" SetFocusOnError="True" ValidationGroup="gender_edit" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>    
+               <asp:Label ID="gender_value" class="no_option" runat="server" Text=""></asp:Label> 
                 </td>
-        </tr>
-        <tr id="gender_row_with_value" style="border:outset;" >
-            <td >  
-                <asp:Label ID="gender_value" runat="server" Text="Male 👨"></asp:Label>               
-               
-                </td>
-        </tr>
+        </tr>       
 
         <tr class="title">
             <td><b><asp:Label runat="server" Text="Address"></asp:Label></b></td>
@@ -85,6 +81,5 @@
         
     </table>
     <br />
-    
     
 </asp:Content>
