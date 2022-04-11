@@ -120,7 +120,7 @@ namespace WebApplication.Customer
             }
             
             
-            string sql = "SELECT art.name,art.imgPath,art.price,cart.qty AS cqty  FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
+            string sql = "SELECT art.artist,art.name,art.imgPath,art.price,art.qty AS aqty,cart.qty AS cqty  FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
             string sql2 = "INSERT INTO orderDetail(orderId,imgPath,artName,qty,artPrice) VALUES (@sqlorder,@img,@artname,@qty,@artprice)";
 
@@ -128,12 +128,14 @@ namespace WebApplication.Customer
 
             string sql4 = "SELECT address FROM profile WHERE userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
+            string sql5 = "UPDATE art SET qty= @update_qty WHERE artist = @artist_id";
+
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlCommand cmd2 = new SqlCommand(sql2, con);
             SqlCommand cmd3 = new SqlCommand(sql3, con);
             SqlCommand cmd4 = new SqlCommand(sql4, con);
+            SqlCommand cmd5 = new SqlCommand(sql5, con);
 
-            
             SqlDataReader dr1 = cmd4.ExecuteReader();
             string address = "";
             if (dr1.Read())
@@ -160,13 +162,19 @@ namespace WebApplication.Customer
             decimal[] price = new decimal[10];
             int[] qty = new int[10];
 
+            string[] artistId = new string[10];
+            int[] art_qty = new int[10];
+
             int i = 0;
+
             while (dr.Read())
             {
                 img[i] = (string)dr["imgPath"];
                 name[i] = (string)dr["name"];
                 price[i] = (decimal)dr["price"];
                 qty[i] = (int)dr["cqty"];
+                art_qty[i] = (int)dr["aqty"];
+                artistId[i] = dr["artist"].ToString();
                 i++;
             }
             dr.Close();
@@ -182,14 +190,23 @@ namespace WebApplication.Customer
 
                 cmd2.ExecuteNonQuery();
                 cmd2.Parameters.Clear();
-            }
-            string sql5 = "DELETE FROM cart WHERE userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
-            SqlCommand cmd5 = new SqlCommand(sql5, con);
-            cmd5.ExecuteNonQuery();
+                int temp = art_qty[j] - qty[j];
+                cmd5.Parameters.AddWithValue("@update_qty",temp );
+                cmd5.Parameters.AddWithValue("@artist_id", artistId[j]);
+                cmd5.ExecuteNonQuery();
+                cmd5.Parameters.Clear();
+            }
+            string sql6 = "DELETE FROM cart WHERE userId ='" + Membership.GetUser().ProviderUserKey + "';";
+
+            SqlCommand cmd6 = new SqlCommand(sql6, con);
+            cmd6.ExecuteNonQuery();
+
 
             Response.Redirect("~/Customer/payment.aspx?orderId="+orderId);
             con.Close();
         }
+        
+        //private void sendMail(DataTable)
     }
 }

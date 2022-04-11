@@ -24,10 +24,11 @@
         </tr>
         <tr>
             <td>
-                <asp:TextBox ID="dp_qty" runat="server" TextMode="Number" min="1" step="1" Text="1"  style="text-align:center;"></asp:TextBox>
+                <asp:TextBox ID="dp_qty" runat="server" TextMode="Number" min="1" step="1" style="text-align:center;">1</asp:TextBox>
                 <asp:Button ID="addCart" runat="server" Text="Add To Cart" OnClick="addCart_Click" />
                 <br /><br />
                 <asp:Label ID="stock" runat="server" Text="Label" ForeColor="Red"></asp:Label>
+                <asp:Label ID="maxReach" runat="server" ForeColor="Red" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -39,7 +40,6 @@
             <td colspan="3" style="overflow-wrap:break-word; width:1000px;max-width:1000px;padding:28px;">
                 
                 <asp:Label ID="dp_artDesc" runat="server" ></asp:Label>
-                
                 
             </td>
         </tr>

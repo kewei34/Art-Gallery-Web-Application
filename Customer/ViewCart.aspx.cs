@@ -16,22 +16,44 @@ namespace WebApplication.Customer
         protected void Page_Load(object sender, EventArgs e)
         {
            
-
             //calculate cart total
-            string sql = "SELECT art.price, cart.qty FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
+            string sql = "SELECT art.qty AS aqty,art.price, cart.qty AS cqty,cart.itemId FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
+
+            string sql2 = "UPDATE cart SET qty= @new_qty WHERE itemId = @Id AND userId = @userId";
+
             decimal total = 0;
 
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
+            SqlCommand cmd2 = new SqlCommand(sql2, con);
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
+            int tempqty = 0;
+            int tempaqty = 0;
+            int[] storeQty = new int[10];
+            int i = 0;
+            int[] tempId = new int[10];
             while (dr.Read())
             {
-                total += decimal.Parse((dr["price"]).ToString()) * decimal.Parse((dr["qty"]).ToString());
-            }
+                tempaqty = (int)dr["aqty"];
+                tempqty = (int)dr["cqty"];
 
+                if (tempqty > tempaqty)
+                {
+                    storeQty[i] = tempaqty;
+                }
+                else
+                {
+                    storeQty[i] = tempqty;
+                }
+                
+                tempId[i] = (int)dr["itemId"];
+                i++;
+                total += decimal.Parse((dr["price"]).ToString()) * (decimal)tempqty;
+            }
+           
             if (!dr.HasRows)
             {
                 Label1.Text = "Your Cart is Empty !";
@@ -46,9 +68,19 @@ namespace WebApplication.Customer
                 checkout.Visible = true;
                 showTotal.Visible = true;
             }
-            lblCartTotal.Text = total.ToString();
+            
+             dr.Close();
 
-            dr.Close();
+            for (int j = 0; j < i; j++)
+            {
+                cmd2.Parameters.AddWithValue("@new_qty", storeQty[j]);
+                cmd2.Parameters.AddWithValue("@Id", tempId[j]);
+                cmd2.Parameters.AddWithValue("@userId", Membership.GetUser().ProviderUserKey);
+                cmd2.ExecuteNonQuery();
+                cmd2.Parameters.Clear();
+            }
+            
+            lblCartTotal.Text = total.ToString();
             con.Close();
 
         }
