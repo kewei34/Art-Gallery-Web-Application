@@ -23,7 +23,7 @@ namespace WebApplication.Customer
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
 
-            cmd.Parameters.AddWithValue("@Id",id);
+            cmd.Parameters.AddWithValue("@Id", id);
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -36,6 +36,7 @@ namespace WebApplication.Customer
                 dp_artPrice.Text = "RM " + dr["price"].ToString();
                 dp_artDesc.Text = (string)dr["description"];
                 dp_qty.Attributes.Add("max", dr["qty"].ToString());
+                stock.Text = "Stock left : " + dr["qty"].ToString();
             }
 
             if (!found)
@@ -45,22 +46,22 @@ namespace WebApplication.Customer
 
             dr.Close();
 
-            
-                string checkSql = "SELECT itemId FROM wishlist WHERE itemId=@Id AND userId = @User";
-                SqlCommand checkCmd = new SqlCommand(checkSql, con);
-                checkCmd.Parameters.AddWithValue("@Id", id);
+
+            string checkSql = "SELECT itemId FROM wishlist WHERE itemId=@Id AND userId = @User";
+            SqlCommand checkCmd = new SqlCommand(checkSql, con);
+            checkCmd.Parameters.AddWithValue("@Id", id);
             checkCmd.Parameters.AddWithValue("@User", Membership.GetUser().ProviderUserKey);
 
 
             dr = checkCmd.ExecuteReader();
 
-                if (dr.HasRows)
-                {
-                    wishlist.Enabled = false;
-                }
-       
+            if (dr.HasRows)
+            {
+                wishlist.Enabled = false;
+            }
 
-                con.Close();
+
+            con.Close();
         }
 
         protected void addCart_Click(object sender, EventArgs e)
@@ -137,7 +138,7 @@ namespace WebApplication.Customer
                     cmd.ExecuteNonQuery();
                 }
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to cart successfully !')", true);
-                
+
 
                 con.Close();
             }
@@ -164,7 +165,7 @@ namespace WebApplication.Customer
 
             if (dr.HasRows)
             {
-               
+
             }
             else
             {
@@ -177,12 +178,12 @@ namespace WebApplication.Customer
 
 
                 cmd.ExecuteNonQuery();
-                
+
                 Response.Redirect("~/Customer/wishlist.aspx");
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to wishlist successfully !')", true);
 
-               
+
             }
 
             dr.Close();

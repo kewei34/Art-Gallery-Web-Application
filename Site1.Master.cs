@@ -33,5 +33,10 @@ namespace WebApplication
         {
             Response.Redirect("~/ManageAccount.aspx");
         }
+
+        protected void hisBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/OrderHistory.aspx");
+        }
     }
 }

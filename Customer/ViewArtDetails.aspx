@@ -26,7 +26,8 @@
             <td>
                 <asp:TextBox ID="dp_qty" runat="server" TextMode="Number" min="1" step="1" Text="1"  style="text-align:center;"></asp:TextBox>
                 <asp:Button ID="addCart" runat="server" Text="Add To Cart" OnClick="addCart_Click" />
-
+                <br /><br />
+                <asp:Label ID="stock" runat="server" Text="Label" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>

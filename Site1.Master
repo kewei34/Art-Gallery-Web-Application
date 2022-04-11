@@ -28,6 +28,8 @@
                         <asp:Button ID="artBtn" runat="server" Text="My Art" OnClick="artBtn_Click" style="height:38.5px;max-height:38.5px"/>
                         &nbsp;
                         <asp:Button ID="accBtn" runat="server" Text="Profile" OnClick="accBtn_Click" style="height:38.5px;max-height:38.5px"/>
+                        &nbsp;
+                        <asp:Button ID="hisBtn" runat="server" Text="My Order" style="height:38.5px;max-height:38.5px" OnClick="hisBtn_Click"/>
                         &nbsp;&nbsp;
                       <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>
                         &nbsp;&nbsp;
