@@ -39,6 +39,7 @@ namespace WebApplication
                     found = true;
                     user_realname.Text = (dr["name"]).ToString();
                     user_address.Text = (dr["address"]).ToString();
+                    userGenderValue.Text = (dr["gender"]).ToString();
                     newR.Text = "1";
 
                 }
@@ -49,6 +50,29 @@ namespace WebApplication
                 dr.Close();
                 con.Close();
                                 
+            }
+            if (userGenderValue.Text == "")
+            {
+                user_gender.Visible = true;                
+                editGender.Visible = true;
+                gender_value.Visible = false;
+                gender_value.Text = "";
+            }
+            else
+            {
+                if(userGenderValue.Text == "M")
+                {
+                    gender_value.Text = "Male 👨";
+                }
+                else if(userGenderValue.Text == "F")
+                {
+                    gender_value.Text = "Female 👧";
+                }
+               
+
+                user_gender.Visible = false;
+                gender_value.Visible = true;
+                editGender.Visible = false;
             }
            
         }
@@ -177,6 +201,33 @@ namespace WebApplication
                 //Membership.UpdateUser(user1);
 
                 ////Response.Redirect("ManageAccount.aspx");
+            }
+        }
+
+        protected void editGender_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                string userId = lblId.Text;
+                string newRegistration = newR.Text;
+                string gender = user_gender.SelectedValue;
+                
+                string sql = @"UPDATE profile SET gender= @Gender WHERE userId = @UserId  ";
+                SqlConnection con = new SqlConnection(cs);
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                cmd.Parameters.AddWithValue("@Gender", gender);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+
+                Response.Redirect("ManageAccount.aspx");
+                
+
             }
         }
     }
