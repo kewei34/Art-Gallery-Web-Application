@@ -66,7 +66,7 @@
                 <tr >
                    
                     <td style="width:165px;max-width:165px;overflow-wrap: break-word; text-align:center;">
-                    <asp:Image ID="art_image" runat="server" src='<%# Eval("imgPath") %>' style="width:160px;max-width:160px;padding:0px;"/></td>
+                    <asp:Image ID="art_image" runat="server" src='<%# Eval("imgPath") %>' style="width:150px;max-width:1450px;height:150px;max-height:150px;padding:0px;"/></td>
                     <td style="width:140px;max-width:140px;overflow-wrap: break-word;text-align:center">
                         <asp:Label ID="art_name" runat="server" Text='<%# Eval("name") %>'></asp:Label></td>
                     <td style="width:150px;max-width:150px;overflow-wrap: break-word;text-align:center">
