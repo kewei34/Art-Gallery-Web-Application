@@ -32,17 +32,20 @@
     
     <table border="1" style="border: black 2px solid;border-collapse:collapse; text-align:center;margin:0px auto;background-color:white;">
         <tr class="specialtr">
-            <td class="auto-style1">Art Image</td>            
+            <td class="auto-style1">Art Image </td>            
         </tr>
         <tr>
-            <td style="margin-left: 80px" class="auto-style1"><asp:FileUpload ID="art_image_upload" runat="server" accept=".png,.jpg,.jpeg" /></td>            
+            <td style="margin-left: 80px" class="auto-style1"><asp:FileUpload ID="art_image_upload" runat="server" accept=".png,.jpg,.jpeg" /><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="art_image_upload" Display="Dynamic" ForeColor="Red" SetFocusOnError="True" ValidationGroup="upload"></asp:RequiredFieldValidator></td>            
         </tr>
            
         <tr class="specialtr">
             <td class="auto-style1">Art Name</td>
+            
         </tr>
         <tr>
-            <td class="auto-style1"><asp:TextBox ID="art_name" runat="server" MaxLength="99"></asp:TextBox></td>
+            <td class="auto-style1"><asp:TextBox ID="art_name" runat="server" MaxLength="99"></asp:TextBox>  </td>
+            
+
         </tr>
         <tr class="specialtr">
             <td class="auto-style1">Art Price</td>
@@ -71,7 +74,7 @@
         
         <tr>
             <td style="text-align:center">
-                <asp:Button ID="button_submit_art" runat="server" style="width:100px;height:50px;text-align:center;font-weight:bold;" Text="Submit" OnClick="button_submit_art_Click" /></td>
+                <asp:Button ID="button_submit_art" runat="server" style="width:100px;height:50px;text-align:center;font-weight:bold;" Text="Submit" OnClick="button_submit_art_Click" ValidationGroup="upload" /></td>
         </tr>
     </table>
         
