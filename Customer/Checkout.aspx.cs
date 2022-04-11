@@ -9,6 +9,11 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Security;
 
+using System.Net;
+using System.Net.Mail;
+using System.Net.Configuration;
+using System.Net.Mime;
+
 namespace WebApplication.Customer
 {
     public partial class Checkout : System.Web.UI.Page
@@ -73,7 +78,7 @@ namespace WebApplication.Customer
                     name1.Text = temName;
                     address1.Text = temAdd;
                 }
-                
+
             }
             dr.Close();
             con.Close();
@@ -88,7 +93,7 @@ namespace WebApplication.Customer
             string proadd = address1.Text;
             string userId = Membership.GetUser().ProviderUserKey.ToString();
             con.Open();
-            if (!(gotAddress&&gotName))
+            if (!(gotAddress && gotName))
             {
                 string pro = "INSERT INTO profile(userId,name,address)VALUES (@userid,@proName,@proAdd)";
                 SqlCommand pcmd = new SqlCommand(pro, con);
@@ -118,8 +123,8 @@ namespace WebApplication.Customer
                     pcmd3.ExecuteNonQuery();
                 }
             }
-            
-            
+
+
             string sql = "SELECT art.artist,art.name,art.imgPath,art.price,art.qty AS aqty,cart.qty AS cqty  FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
             string sql2 = "INSERT INTO orderDetail(orderId,imgPath,artName,qty,artPrice) VALUES (@sqlorder,@img,@artname,@qty,@artprice)";
@@ -192,7 +197,7 @@ namespace WebApplication.Customer
                 cmd2.Parameters.Clear();
 
                 int temp = art_qty[j] - qty[j];
-                cmd5.Parameters.AddWithValue("@update_qty",temp );
+                cmd5.Parameters.AddWithValue("@update_qty", temp);
                 cmd5.Parameters.AddWithValue("@artist_id", artistId[j]);
                 cmd5.ExecuteNonQuery();
                 cmd5.Parameters.Clear();
@@ -202,11 +207,47 @@ namespace WebApplication.Customer
             SqlCommand cmd6 = new SqlCommand(sql6, con);
             cmd6.ExecuteNonQuery();
 
+            string msql = "SELECT * FROM orderDetail INNER JOIN userOrder ON orderDetail.orderId = userOrder.Id WHERE orderDetail.orderId = @mail_orderId";
 
-            Response.Redirect("~/Customer/payment.aspx?orderId="+orderId);
+            SqlCommand mcmd = new SqlCommand(msql, con);
+
+            mcmd.Parameters.AddWithValue("@mail_orderId", orderId);
+
+            SqlDataReader mdr = mcmd.ExecuteReader();
+            string str = " <table><tr><td> Name </td> <td> Price </td> <td> Qty </td> <td> Total </td></tr> ";
+            while (mdr.Read())
+            {
+                str += "<tr> <td>" + mdr["artName"].ToString() + "</td><td>" + mdr["qty"].ToString() + "</td><td>" + mdr["artPrice"].ToString() + "</td><td>" + decimal.Parse(mdr["artPrice"].ToString()) * decimal.Parse(mdr["qty"].ToString()) + "</td></tr>";
+            }
+            str += "</table>";
+
+            sendMail(Membership.GetUser().Email, orderId, str);
+
+            Response.Redirect("~/Customer/payment.aspx?orderId=" + orderId);
             con.Close();
         }
-        
-        //private void sendMail(DataTable)
+
+        public void sendMail(string email, int orderid, string str)
+        {
+
+
+            SmtpSection smtpSection = (SmtpSection)ConfigurationManager.GetSection("system.net/mailSettings/smtp");
+            using (MailMessage mm = new MailMessage(smtpSection.From, email))
+            {
+                mm.Subject = "Artwork Order Summary";
+                mm.Body = str;
+
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Host = smtpSection.Network.Host;
+                smtp.EnableSsl = smtpSection.Network.EnableSsl;
+                NetworkCredential networkCred = new NetworkCredential(smtpSection.Network.UserName, smtpSection.Network.Password);
+                smtp.UseDefaultCredentials = smtpSection.Network.DefaultCredentials;
+                smtp.Credentials = networkCred;
+                smtp.Port = smtpSection.Network.Port;
+                smtp.Send(mm);
+            }
+        }
+
     }
 }
