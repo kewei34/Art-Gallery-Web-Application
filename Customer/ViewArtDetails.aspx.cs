@@ -17,19 +17,36 @@ namespace WebApplication.Customer
         {
             Boolean found = false;
             string id = Request.QueryString["Id"] ?? "";
+            string userid = Membership.GetUser().ProviderUserKey.ToString();
 
             string sql = "SELECT * FROM art WHERE Id = @Id";
+            string sql2 = "SELECT qty FROM cart WHERE userId = @userId AND itemIs = @art_id";
 
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
+            SqlCommand cmd2 = new SqlCommand(sql2, con);
 
             cmd.Parameters.AddWithValue("@Id", id);
 
+            cmd2.Parameters.AddWithValue("@userid", userid);
+            cmd2.Parameters.AddWithValue("@art_id", id);
+
             con.Open();
+            SqlDataReader dr1 = cmd2.ExecuteReader();
+            int qtyInCart = 0;
+            if (dr1.HasRows)
+            {
+                if (dr1.Read())
+                {
+                    qtyInCart = (int)dr1["qty"];
+                }
+            }
+            dr1.Close();
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read())
             {
+                int max = dr["qty"];
                 found = true;
                 dp_artImg.ImageUrl = (string)dr["imgPath"];
                 dp_artName.Text = (string)dr["name"];
@@ -85,11 +102,6 @@ namespace WebApplication.Customer
             {
                 //his own art
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You cannot buy your own art !')", true);
-                //System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                //sb.Append("alert('");
-                //sb.Append("You cannot buy your own art !");
-                //sb.Append("');");
-                //ClientScript.RegisterOnSubmitStatement(this.GetType(), "alert", sb.ToString());
                 dr.Close();
                 con.Close();
             }
