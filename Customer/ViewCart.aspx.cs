@@ -20,12 +20,14 @@ namespace WebApplication.Customer
             string sql = "SELECT art.qty AS aqty,art.price, cart.qty AS cqty,cart.itemId FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
             string sql2 = "UPDATE cart SET qty= @new_qty WHERE itemId = @Id AND userId = @userId";
+            string sql3 = "DELETE FROM cart WHERE itemId = @Id AND userId = @userId";
 
             decimal total = 0;
 
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
             SqlCommand cmd2 = new SqlCommand(sql2, con);
+            SqlCommand cmd3 = new SqlCommand(sql3, con);
 
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -42,25 +44,53 @@ namespace WebApplication.Customer
 
                 if (tempqty > tempaqty)
                 {
-                    storeQty[i] = tempaqty;
+                    tempqty = tempaqty;
                 }
-                else
-                {
-                    storeQty[i] = tempqty;
-                }
+                storeQty[i] = tempqty;
+                
                 
                 tempId[i] = (int)dr["itemId"];
                 i++;
                 total += decimal.Parse((dr["price"]).ToString()) * (decimal)tempqty;
             }
-           
+            bool hasItem = false;
             if (!dr.HasRows)
+            {
+                hasItem = false;
+                
+            }
+            else
+            {
+                hasItem = true;
+            }
+            
+             dr.Close();
+
+            for (int j = 0; j < i; j++)
+            {
+                if (storeQty[j] == 0)
+                {
+                    cmd3.Parameters.AddWithValue("@Id", tempId[j]);
+                    cmd3.Parameters.AddWithValue("@userId", Membership.GetUser().ProviderUserKey);
+                    cmd3.ExecuteNonQuery();
+                    cmd3.Parameters.Clear();
+                }
+                else
+                {
+                    cmd2.Parameters.AddWithValue("@new_qty", storeQty[j]);
+                cmd2.Parameters.AddWithValue("@Id", tempId[j]);
+                cmd2.Parameters.AddWithValue("@userId", Membership.GetUser().ProviderUserKey);
+                cmd2.ExecuteNonQuery();
+                cmd2.Parameters.Clear();
+                }
+                
+            }
+            if (!hasItem)
             {
                 Label1.Text = "Your Cart is Empty !";
                 lblCartTotal.Visible = false;
                 checkout.Visible = false;
                 showTotal.Visible = false;
-                
             }
             else
             {
@@ -68,17 +98,7 @@ namespace WebApplication.Customer
                 checkout.Visible = true;
                 showTotal.Visible = true;
             }
-            
-             dr.Close();
 
-            for (int j = 0; j < i; j++)
-            {
-                cmd2.Parameters.AddWithValue("@new_qty", storeQty[j]);
-                cmd2.Parameters.AddWithValue("@Id", tempId[j]);
-                cmd2.Parameters.AddWithValue("@userId", Membership.GetUser().ProviderUserKey);
-                cmd2.ExecuteNonQuery();
-                cmd2.Parameters.Clear();
-            }
             
             lblCartTotal.Text = total.ToString();
             con.Close();
