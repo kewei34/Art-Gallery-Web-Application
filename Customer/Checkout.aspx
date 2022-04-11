@@ -18,7 +18,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Address :"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="address1" runat="server" Height="208px" Width="444px"></asp:TextBox>
+                <asp:TextBox ID="address1" runat="server" Height="208px" Width="444px" TextMode="MultiLine" style="resize:none" Font-Size="14pt"></asp:TextBox>
             </td>
         </tr>
         <tr>

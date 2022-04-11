@@ -14,11 +14,12 @@ namespace WebApplication.Customer
     public partial class Checkout : System.Web.UI.Page
     {
         string cs = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        bool profile = false;
         bool gotName = false;
         bool gotAddress = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            name1.Enabled = true;
+            address1.Enabled = true;
             //show total
             string sql = "SELECT art.price, cart.qty FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
             decimal total = 0;
@@ -33,13 +34,14 @@ namespace WebApplication.Customer
             {
                 total += decimal.Parse((dr["price"]).ToString()) * decimal.Parse((dr["qty"]).ToString());
             }
+            dr.Close();
             lblTotal.Text = "RM " + total.ToString();
 
 
+            //identify name and address status
             string sql2 = "SELECT name,address FROM profile WHERE userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
             SqlCommand cmd2 = new SqlCommand(sql2, con);
-            con.Open();
             SqlDataReader dr1 = cmd2.ExecuteReader();
 
             string temName = "";
@@ -47,46 +49,78 @@ namespace WebApplication.Customer
 
             if (dr1.Read())
             {
-                temName = dr["name"].ToString();
-                temAdd = dr["address"].ToString();
-                if (!temName.Equals(""))
+                temName = dr1["name"].ToString();
+                temAdd = dr1["address"].ToString();
+                if (!temName.Equals(null))
                 {
                     name1.Enabled = false;
                     gotName = true;
+                    name1.Text = temName;
                 }
-                if (!temAdd.Equals(""))
+                if (!temAdd.Equals(null))
                 {
                     address1.Enabled = false;
                     gotAddress = true;
+                    address1.Text = temAdd;
                 }
-                if (!(temName.Equals("") && temAdd.Equals("")))
+                if (!(temName.Equals(null) && temAdd.Equals(null)))
                 {
                     name1.Enabled = false;
                     address1.Enabled = false;
-                    profile = true;
+                    gotName = true;
+                    gotAddress = true;
+
+                    name1.Text = temName;
+                    address1.Text = temAdd;
                 }
-                dr.Close();
+                
             }
+            dr.Close();
+            con.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(cs);
 
+            //insert name or address
             string proname = name1.Text;
             string proadd = address1.Text;
-            if (!profile)
+            string userId = Membership.GetUser().ProviderUserKey.ToString();
+            con.Open();
+            if (!(gotAddress&&gotName))
             {
-                string pro = "INSERT INTO profile(name,address)VALUES (@proName,@proAdd)";
+                string pro = "INSERT INTO profile(userId,name,address)VALUES (@userid,@proName,@proAdd)";
                 SqlCommand pcmd = new SqlCommand(pro, con);
 
+                pcmd.Parameters.AddWithValue("@userid", userId);
                 pcmd.Parameters.AddWithValue("@proName", proname);
                 pcmd.Parameters.AddWithValue("@proAdd", proadd);
                 pcmd.ExecuteNonQuery();
             }
+            else if (!gotName)
+            {
+                string pro2 = "INSERT INTO profile(userId,name)VALUES (@userid,@proName2)";
+                SqlCommand pcmd2 = new SqlCommand(pro2, con);
+                pcmd2.Parameters.AddWithValue("@userid", userId);
+                pcmd2.Parameters.AddWithValue("@proName2", proname);
+                pcmd2.ExecuteNonQuery();
+            }
+            else
+            {
+                if (!gotAddress)
+                {
+                    string pro3 = "INSERT INTO profile(address)VALUES (@userid,@proAdd2)";
+                    SqlCommand pcmd3 = new SqlCommand(pro3, con);
 
-
-            string sql = "SELECT * FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
+                    pcmd3.Parameters.AddWithValue("@userid", userId);
+                    pcmd3.Parameters.AddWithValue("@proAdd2", proadd);
+                    pcmd3.ExecuteNonQuery();
+                }
+            }
+            
+            
+            string sql = "SELECT art.name,art.imgPath,art.price,cart.qty AS cqty  FROM art INNER JOIN cart ON art.Id = cart.itemId WHERE cart.userId ='" + Membership.GetUser().ProviderUserKey + "';";
 
             string sql2 = "INSERT INTO orderDetail(orderId,imgPath,artName,qty,artPrice) VALUES (@sqlorder,@img,@artname,@qty,@artprice)";
 
@@ -99,7 +133,7 @@ namespace WebApplication.Customer
             SqlCommand cmd3 = new SqlCommand(sql3, con);
             SqlCommand cmd4 = new SqlCommand(sql4, con);
 
-            con.Open();
+            
             SqlDataReader dr1 = cmd4.ExecuteReader();
             string address = "";
             if (dr1.Read())
@@ -112,6 +146,7 @@ namespace WebApplication.Customer
             }
             dr1.Close();
 
+            //create order
             cmd3.Parameters.AddWithValue("@userid", Membership.GetUser().ProviderUserKey);
             cmd3.Parameters.AddWithValue("@oDate", DateTime.Now);
             cmd3.Parameters.AddWithValue("@add", address);
@@ -131,7 +166,7 @@ namespace WebApplication.Customer
                 img[i] = (string)dr["imgPath"];
                 name[i] = (string)dr["name"];
                 price[i] = (decimal)dr["price"];
-                qty[i] = (int)dr["qty"];
+                qty[i] = (int)dr["cqty"];
                 i++;
             }
             dr.Close();
@@ -148,7 +183,12 @@ namespace WebApplication.Customer
                 cmd2.ExecuteNonQuery();
                 cmd2.Parameters.Clear();
             }
-            // Response.Redirect("~/Customer/payment.aspx");
+            string sql5 = "DELETE FROM cart WHERE userId ='" + Membership.GetUser().ProviderUserKey + "';";
+
+            SqlCommand cmd5 = new SqlCommand(sql5, con);
+            cmd5.ExecuteNonQuery();
+
+            Response.Redirect("~/Customer/payment.aspx?orderId="+orderId);
             con.Close();
         }
     }
