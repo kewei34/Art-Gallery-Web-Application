@@ -202,8 +202,11 @@ namespace WebApplication.Customer
             SqlCommand cmd6 = new SqlCommand(sql6, con);
             cmd6.ExecuteNonQuery();
 
+
             Response.Redirect("~/Customer/payment.aspx?orderId="+orderId);
             con.Close();
         }
+        
+        //private void sendMail(DataTable)
     }
 }

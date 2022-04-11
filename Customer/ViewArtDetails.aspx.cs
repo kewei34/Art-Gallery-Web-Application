@@ -20,7 +20,7 @@ namespace WebApplication.Customer
             string userid = Membership.GetUser().ProviderUserKey.ToString();
 
             string sql = "SELECT * FROM art WHERE Id = @Id";
-            string sql2 = "SELECT qty FROM cart WHERE userId = @userId AND itemIs = @art_id";
+            string sql2 = "SELECT qty FROM cart WHERE userId = @userId AND itemId = @art_id";
 
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -46,13 +46,20 @@ namespace WebApplication.Customer
 
             if (dr.Read())
             {
-                int max = dr["qty"];
+                int max = (int)dr["qty"]-qtyInCart;
+                if (max == 0)
+                {
+                    dp_qty.Enabled = false;
+                    addCart.Enabled = false;
+                    maxReach.Text = "<br />You already had the maxinum number of stock in cart.";
+                    maxReach.Visible = true;
+                }
                 found = true;
                 dp_artImg.ImageUrl = (string)dr["imgPath"];
                 dp_artName.Text = (string)dr["name"];
                 dp_artPrice.Text = "RM " + dr["price"].ToString();
                 dp_artDesc.Text = (string)dr["description"];
-                dp_qty.Attributes.Add("max", dr["qty"].ToString());
+                dp_qty.Attributes.Add("max", max.ToString());
                 stock.Text = "Stock left : " + dr["qty"].ToString();
             }
 
@@ -149,7 +156,7 @@ namespace WebApplication.Customer
                     dr.Close();
                     cmd.ExecuteNonQuery();
                 }
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to cart successfully !')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Item added to cart successfully !');window.location ='ViewCart.aspx';", true);
 
 
                 con.Close();
