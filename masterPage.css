@@ -48,3 +48,8 @@ td{
 #headerBtn {
     text-align: right;
 }
+
+.error{
+    color:red !important;
+    font-weight:bold !important;
+}
