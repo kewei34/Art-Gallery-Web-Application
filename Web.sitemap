@@ -8,9 +8,10 @@
     <siteMapNode url="~/Customer/wishlist.aspx" title="Wishlist"  description=""/>
     <siteMapNode url="~/Customer/ViewCart.aspx" title="My Cart"  description="">
       <siteMapNode url="~/Customer/Checkout.aspx" title="Checkout">
-        <siteMapNode url="~/MakePayment.aspx" title="Make Payment"  description="">
+        <siteMapNode url="~/Makepayment.aspx" title="Make Payment"  description="">
         <siteMapNode url="~/Customer/payment.aspx" title="Payment"/>
           </siteMapNode>
+
       </siteMapNode>
     </siteMapNode>
     <siteMapNode url="~/Customer/ViewArtDetails.aspx" title="Art Details"  description=""/>
