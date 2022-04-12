@@ -31,7 +31,13 @@
      <h1 style="text-align: center;">💳Credit/Debit Card Payment</h1>
 
     <table border="1" style="border: black 2px solid; border-collapse: collapse; text-align: center; margin: 0px auto; background-color: white;">
-        
+        <tr>
+            <td class="auto-style1">Total to Pay</td>
+        </tr>
+        <tr>
+            <td class="auto-style1">
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label></td>
+        </tr>
         <tr class="specialtr">
             <td class="auto-style1">Credit Card No.</td>
 
@@ -70,7 +76,7 @@
         
         <tr>
             <td style="text-align: center">
-                <asp:Button ID="button_submit_art" runat="server" Style="width: 100px; height: 50px; text-align: center; font-weight: bold;" Text="Submit" ValidationGroup="upload" /></td>
+                <asp:Button ID="button_submit_art" runat="server" Style="width: 100px; height: 50px; text-align: center; font-weight: bold;" Text="Submit" ValidationGroup="upload" OnClick="button_submit_art_Click" /></td>
         </tr>
     </table>
 </asp:Content>
