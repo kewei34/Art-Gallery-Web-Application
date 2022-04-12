@@ -81,8 +81,11 @@
     <Content Include="error403.aspx" />
     <Content Include="error404.aspx" />
     <Content Include="error500.aspx" />
+    <Content Include="female.ascx" />
+    <Content Include="general.ascx" />
     <Content Include="homepage.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="male.ascx" />
     <Content Include="ManageAccount.aspx" />
     <Content Include="masterPage.css" />
     <Content Include="OrderHistory.aspx" />
@@ -161,6 +164,20 @@
     <Compile Include="error500.aspx.designer.cs">
       <DependentUpon>error500.aspx</DependentUpon>
     </Compile>
+    <Compile Include="female.ascx.cs">
+      <DependentUpon>female.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="female.ascx.designer.cs">
+      <DependentUpon>female.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="general.ascx.cs">
+      <DependentUpon>general.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="general.ascx.designer.cs">
+      <DependentUpon>general.ascx</DependentUpon>
+    </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,6 +191,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="male.ascx.cs">
+      <DependentUpon>male.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="male.ascx.designer.cs">
+      <DependentUpon>male.ascx</DependentUpon>
     </Compile>
     <Compile Include="ManageAccount.aspx.cs">
       <DependentUpon>ManageAccount.aspx</DependentUpon>

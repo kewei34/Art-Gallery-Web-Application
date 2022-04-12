@@ -32,7 +32,8 @@
                         &nbsp;
                         <asp:Button ID="hisBtn" runat="server" Text="My Order" style="height:38.5px;max-height:38.5px" OnClick="hisBtn_Click"/>
                         &nbsp;&nbsp;
-                      <b> Hi, <asp:LoginName ID="LoginName1" runat="server" /></b>
+                      <b> Hi, <asp:LoginName ID="LoginName1" runat="server" />
+                          <asp:Label ID="profile" runat="server" Text="Label"></asp:Label></b>
                         &nbsp;&nbsp;
                         <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
                     </td>
